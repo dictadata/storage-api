@@ -1,0 +1,13 @@
+### no user
+GET http://localhost:8089/index.html HTTP/1.1
+
+### no user
+GET http://localhost:8089/robots.txt HTTP/1.1
+
+### Public guest:guest
+GET http://localhost:8089/index.html HTTP/1.1
+Authorization: Basic guest guest
+
+### User admin:admin
+GET http://localhost:8089/robots.txt HTTP/1.1
+Authorization: Basic admin admin

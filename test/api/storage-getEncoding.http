@@ -1,0 +1,3 @@
+### drew@drewletcher.net
+GET http://localhost:8089/api/storage/encoding/elastic||icbrewlab_transactions_2015| HTTP/1.1
+Authorization: Basic ZHJld0BkcmV3bGV0Y2hlci5uZXQ6cGl6emEx

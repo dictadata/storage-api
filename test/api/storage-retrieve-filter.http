@@ -1,0 +1,17 @@
+### drew@drewletcher.net
+POST http://localhost:8089/api/storage/retrieve/elastic||hupp_equipment_repair_history| HTTP/1.1
+Authorization: Basic ZHJld0BkcmV3bGV0Y2hlci5uZXQ6cGl6emEx
+Content-Type: application/json
+
+{
+  "pattern": {
+    "filter": {
+      "dealer": "Hupp ToyotaLift",
+      "invoice_date": { "gte": "2016-01-01", "lte": "2016-12-31" }
+    },
+    "cues": {
+      "count": 10,
+      "order": {"asset_num": "asc"}
+    }
+  }
+}

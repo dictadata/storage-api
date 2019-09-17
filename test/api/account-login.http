@@ -1,0 +1,16 @@
+### Install Visual Studio Code extension: REST Client  humao.rest-client
+
+### no user
+GET http://localhost:8089/account/login HTTP/1.1
+
+### nobody@nowheresville.com:gonebaby
+GET http://localhost:8089/account/login HTTP/1.1
+Authorization: Basic bm9ib2R5QG5vd2hlcmVzdmlsbGUuY29tOmdvbmViYWJ5
+
+### guest:guest
+GET http://localhost:8089/account/login HTTP/1.1
+Authorization: Basic Z3Vlc3Q6Z3Vlc3Q=
+
+### admin:admin
+GET http://localhost:8089/account/login HTTP/1.1
+Authorization: Basic admin admin

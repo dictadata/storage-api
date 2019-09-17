@@ -1,0 +1,31 @@
+### Install Visual Studio Code extension: REST Client  humao.rest-client
+
+###
+PUT http://localhost:8089/account/update HTTP/1.1
+Authorization: Basic guest guest
+Content-Type: application/json
+
+{
+    "userid": "guest",
+    "password": "guest",
+    "roles": ["Public","User"],
+    "settings": {
+      "homepage": "/guest/myhomepage",
+      "theme": "light"
+    }
+}
+
+###
+PUT http://localhost:8089/account/update HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+    "userid": "admin",
+    "password": "admin",
+    "roles": ["Public","User","Admin","DevOps","Monitor"],
+    "settings": {
+      "homepage": "/home",
+      "theme": "dark"
+    }
+}
