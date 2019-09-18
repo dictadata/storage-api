@@ -3,7 +3,7 @@
  * api/message.js
  */
 
-const {authorize, roles} = require('@dicta.io/storage-node');
+const {authorize, roles} = require('@dicta-io/storage-node');
 const express = require('express');
 const mailer = require("nodemailer");
 const config = require('../config');

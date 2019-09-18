@@ -2,8 +2,8 @@
  * api/settings.js
 */
 
-var {authorize, roles} = require('@dicta.io/storage-node');
-var storage = require('@dicta.io/storage-junctions');
+var {authorize, roles} = require('@dicta-io/storage-node');
+var storage = require('@dicta-io/storage-junctions');
 const express = require('express');
 const config = require('../config');
 const logger = require('../logger');

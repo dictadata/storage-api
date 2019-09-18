@@ -3,7 +3,7 @@
  * api/upload.js
  */
 
-const {authorize, roles} = require('@dicta.io/storage-node');
+const {authorize, roles} = require('@dicta-io/storage-node');
 const express = require('express');
 const formidable = require('formidable');
 const util = require('util');

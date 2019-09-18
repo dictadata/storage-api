@@ -3,8 +3,8 @@
  * api/storage.js
 */
 
-const {authorize, roles} = require('@dicta.io/storage-node');
-const storage = require('@dicta.io/storage-junctions');
+const {authorize, roles} = require('@dicta-io/storage-node');
+const storage = require('@dicta-io/storage-junctions');
 const express = require('express');
 const config = require('../config');
 const logger = require('../logger');

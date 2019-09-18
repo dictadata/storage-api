@@ -1,7 +1,7 @@
 "use strict";
 
-const {authorize,roles} = require('@dicta.io/storage-node');
-const storage = require('@dicta.io/storage-junctions');
+const {authorize,roles} = require('@dicta-io/storage-node');
+const storage = require('@dicta-io/storage-junctions');
 const express = require('express');
 const formidable = require('formidable');
 const fs = require('fs');

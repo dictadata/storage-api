@@ -1,11 +1,11 @@
 {
-  "name": "@dicta.io/storage-api",
-  "version": "0.2.1",
-  "description": "Example RESTful API storage-node server.",
+  "name": "@dicta-io/storage-api",
+  "version": "0.1.1",
+  "description": "Example REST API server extending @dicta-io/storage-node.",
   "author": "Drew O. Letcher",
   "license": "MIT",
   "main": "src/main.js",
-  "repository": "gitlab:dicta.io/storage-node",
+  "repository": "github:dicta-io/storage-api",
   "scripts": {
     "debug": "set NODE_ENV=development& node --inspect --preserve-symlinks src/main.js",
     "lint": "eslint src/**/*.js",
@@ -13,6 +13,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@dicta-io/storage-junctions": "^0.2.3",
+    "@dicta-io/storage-node": "^0.2.2",
     "express": "^4.17.1",
     "formidable": "^1.2.1",
     "nodemailer": "^6.2.1",
