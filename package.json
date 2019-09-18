@@ -1,6 +1,6 @@
 {
   "name": "@dicta-io/storage-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Example REST API server extending @dicta-io/storage-node.",
   "author": "Drew O. Letcher",
   "license": "MIT",
