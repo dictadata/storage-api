@@ -33,9 +33,9 @@ async function getEncoding (req, res) {
   logger.info('GET /storage/encoding');
 
   var smt = req.params['SMT'];
+  var junction = storage.activate(smt);
 
   try {
-    var junction = storage.create(smt);
     let encoding = await junction.getEncoding();
     //console.log(encoding);
     res.jsonp(encoding);
@@ -44,6 +44,9 @@ async function getEncoding (req, res) {
     console.log(err);
     logger.error(err);
     res.jsonp(err);
+  }
+  finally {
+    junction.relax();
   }
 }
 
@@ -57,14 +60,17 @@ async function putEncoding (req, res) {
 
   var smt = req.params['SMT'];
   var encoding = req.body;
+  var junction = storage.activate(smt);
 
   try {
-    var junction = storage.create(smt);
     let results = await junction.putEncoding(encoding);
     res.jsonp(results);
   }
   catch(err) {
     res.jsonp(err);
+  }
+  finally {
+    junction.relax();
   }
 }
 
@@ -78,14 +84,17 @@ async function store (req, res) {
 
   var smt = req.params['SMT'];
   var construct = req.body;
+  var junction = storage.activate(smt);
 
   try {
-    var junction = storage.create(smt);
     let results = await junction.store(construct);
     res.jsonp(results);
   }
   catch(err) {
     res.jsonp(err);
+  }
+  finally {
+    junction.relax();
   }
 }
 
@@ -98,14 +107,17 @@ async function recall (req, res) {
   logger.info('POST /storage/recall');
 
   var smt = req.params['SMT'];
+  var junction = storage.activate(smt);
 
   try {
-    var junction = storage.create(smt);
     let results = await junction.recall();
     res.jsonp(results);
   }
   catch(err) {
     res.jsonp(err);
+  }
+  finally {
+    junction.relax();
   }
 }
 
@@ -118,14 +130,17 @@ async function dull (req, res) {
   logger.info('POST /storage/dull');
 
   var smt = req.params['SMT'];
+  var junction = storage.activate(smt);
 
   try {
-    var junction = storage.create(smt);
     let results = await junction.dull();
     res.jsonp(results);
   }
   catch(err) {
     res.jsonp(err);
+  }
+  finally {
+    junction.relax();
   }
 }
 
@@ -139,9 +154,9 @@ async function retrieve (req, res) {
 
   var smt = req.params['SMT'];
   let pattern = req.body.pattern;
+  var junction = storage.activate(smt);
 
   try {
-    var junction = storage.create(smt);
     let results = await junction.retrieve(pattern);
     res.jsonp(results);
   }
@@ -149,5 +164,8 @@ async function retrieve (req, res) {
     console.log(err);
     logger.error(err);
     res.jsonp(err);
+  }
+  finally {
+    junction.relax();
   }
 }

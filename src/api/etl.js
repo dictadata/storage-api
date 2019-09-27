@@ -28,10 +28,11 @@ module.exports = router;
 
 async function test(req, res) {
   logger.info('request GET /import/test');
-  try {
-    var j1 = storage.create("csv|./test/data/|testfile.csv|*", { filename: './test/data/testfile.csv' });
-    var j2 = storage.create("csv|./test/data/|testoutput.csv|*", { filename: './test/data/testoutput.csv' });
 
+  var j1 = storage.activate("csv|./test/data/|testfile.csv|*", { filename: './test/data/testfile.csv' });
+  var j2 = storage.activate("csv|./test/data/|testoutput.csv|*", { filename: './test/data/testoutput.csv' });
+
+  try {
     let encoding = await j1.getEncoding();
 
     //console.log(">>> encoding results");
@@ -39,28 +40,23 @@ async function test(req, res) {
     //console.log(JSON.stringify(encoding.fields));
 
     //console.log(">>> put destination encoding");
-    j2.putEncoding(encoding);
+    await j2.putEncoding(encoding);
 
     //console.log(">>> create streams");
     var reader = j1.getReadStream();
     var writer = j2.getWriteStream();
 
     //console.log(">>> start pipe");
-    pipeline(reader, writer)
-    .then( () => {
-      // compare input to output
-      // To Do
-
-      res.jsonp({status: "OK"});
-    })
-    .catch( err => {
-      console.log(err);
-      res.jsonp(err);
-    });
+    await pipeline(reader, writer)
+    res.jsonp({status: "OK"});
   }
   catch(err) {
     console.log(err);
     res.jsonp(err);
+  }
+  finally {
+    j1.relax();
+    j2.relax();
   }
 }
 
@@ -126,17 +122,13 @@ async function importFile (req, res) {
     for (let i = 0; i < importList.length; i++) {
       let index = fields.prefix + '_' + importList[i].container;
 
-      var j1 = storage.create("csv|.|input.csv|*", { filename: importList[i].filename });
-
-      var j2 = storage.create("elasticsearch|./test/data/|testoutput.csv|*");
-
-      var reader = j1.getReadStream();
-      var writer = j2.getWriteStream();
-
-      let reader = new CsvReader(importList[i].filename);
-      let writer = new ElasticWriter(index, fields.append);
+      var j1 = storage.activate("csv|.|input.csv|*", { filename: importList[i].filename });
+      var j2 = storage.activate("elasticsearch|./test/data/|testoutput.csv|*");
 
       try {
+        var reader = j1.getReadStream();
+        var writer = j2.getWriteStream();
+
         // examine file for encodings
         let numLines = -1;
         let results = await reader.codify(numLines);
@@ -155,6 +147,10 @@ async function importFile (req, res) {
       catch(err) {
         logger.error(err);
         res.jsonp(err);
+      }
+      finally {
+        j1.relax();
+        j2.relax();
       }
     }
 
