@@ -1,7 +1,7 @@
-"use strict";
 /**
- * api/status.js
+ * api/status
  */
+"use strict";
 
 // contains some simple, general purpose actions
 

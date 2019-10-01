@@ -1,17 +1,17 @@
-"use strict";
 /**
- * api/index.js
+ * storage/api
  */
+"use strict";
 
 const express = require('express');
 
 const status = require('./status');
 const settings = require('./settings');
-const message = require('./message');
+const notify = require('./notify');
 
 /* sub routes */
 const router = express.Router();
 router.use('/status', status);
 router.use('/settings', settings);
-router.use('/message', message);
+router.use('/notify', notify);
 module.exports = router;

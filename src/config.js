@@ -6,29 +6,41 @@
 const path = require('path');
 
 var settings = {
-  realm: 'api',
   serverPort: '8089',
+  realm: 'api',
 
-  // path to log files
   logPath: path.join(__dirname, '../log'),
 
   publicPath: path.join(__dirname, '../public'),
 
-  // settings for uploading files
+  // path to directory to contain upload and download folders
+  dataPath: path.join(__dirname, '../data'),
   maxFileSize: 200 * 1024 * 1024, // 200MB
-  uploadsPath: path.join(__dirname, "../data/uploads/"),
 
-  // settings for ETL Codify
+  // settings for Codify
   maxKeywordLength: 32,
   maxKeywordValues: 128,
 
-  // elasticsearch storage
-  mappingsPath: path.join(__dirname, "../data/mappings/"),
-  defaultMappings: path.join(__dirname, "./storage/elastic/_defaultMappings.json"),
+  // api configuration
+  settings_smt: 'elasticsearch|http:/localhost:9200|api_settings|!key',
 
-  templatesPath: path.join(__dirname, "../data/templates/"),
-  defaultTemplate: path.join(__dirname, "./storage/elastic/_defaultTemplate.json"),
+  // mail message defaults
+  mail_defaults: {
+    from: "",
+    to: "",
+    subject: "notification from dicta API",
+    text: "You are hereby notified."
+  },
 
+  smtp_sender: {
+    host: "",
+    port: 465,
+    secure: true,
+    auth: {
+      user: "",
+      pass: ""
+    }
+  }
 };
 
 // development settings

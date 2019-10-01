@@ -1,0 +1,172 @@
+{
+  "_storagePath": "elasticsearch|http://localhost:9200|api_accounts|*",
+  "model": "elasticsearch",
+  "location": "http://localhost:9200",
+  "schema": "api_accounts",
+  "key": "*",
+  "fields": {
+    "dateCreated": {
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "elastic_property": {
+        "type": "date"
+      }
+    },
+    "dateUpdated": {
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "elastic_property": {
+        "type": "date"
+      }
+    },
+    "lastLogin": {
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "elastic_property": {
+        "type": "date"
+      }
+    },
+    "password": {
+      "type": "keyword",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "elastic_property": {
+        "type": "keyword",
+        "ignore_above": 256
+      }
+    },
+    "profile": {
+      "type": "undefined",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "elastic_property": {
+        "properties": {
+          "displayName": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "emails": {
+            "properties": {
+              "type": {
+                "type": "keyword",
+                "ignore_above": 256
+              },
+              "value": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "id": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "name": {
+            "properties": {
+              "familyName": {
+                "type": "keyword",
+                "ignore_above": 256
+              },
+              "givenName": {
+                "type": "keyword",
+                "ignore_above": 256
+              },
+              "middleName": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "photos": {
+            "properties": {
+              "value": {
+                "type": "keyword",
+                "ignore_above": 512
+              }
+            }
+          },
+          "provider": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      }
+    },
+    "roles": {
+      "type": "keyword",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "elastic_property": {
+        "type": "keyword",
+        "ignore_above": 32
+      }
+    },
+    "settings": {
+      "type": "undefined",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "elastic_property": {
+        "properties": {
+          "homepage": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "prefix": {
+            "type": "keyword",
+            "ignore_above": 32
+          },
+          "sidebarColor": {
+            "type": "keyword",
+            "ignore_above": 32
+          },
+          "theme": {
+            "type": "keyword",
+            "ignore_above": 32
+          }
+        }
+      }
+    },
+    "state": {
+      "type": "undefined",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "elastic_property": {
+        "properties": {
+          "isAuthenticated": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "userid": {
+      "type": "keyword",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "elastic_property": {
+        "type": "keyword",
+        "ignore_above": 256
+      }
+    }
+  }
+}

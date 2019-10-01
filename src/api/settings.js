@@ -1,6 +1,7 @@
-"use strict";/**
- * api/settings.js
+/**
+ * api/settings
 */
+"use strict";
 
 var {authorize, roles} = require('@dicta-io/storage-node');
 var storage = require('@dicta-io/storage-junctions');
@@ -13,22 +14,22 @@ const logger = require('../logger');
  */
 
 var router = express.Router();
-router.get('/:name', authorize([roles.User]), getSettings);
-router.put('/:name', authorize([roles.User]), putSettings);
+router.get('/:key', authorize([roles.User]), getSettings);
+router.put('/:key', authorize([roles.User]), putSettings);
 module.exports = router;
 
 
 async function getSettings (req, res) {
   logger.info('URI \'GET settings\' was called.');
 
-  let name = req.params['name'];
+  let key = req.params['key'];
 
-  let smt = config.smt_settings;
+  let smt = config.settings_smt;
   let junction = storage.activate(smt);
 
   try {
-    let results = await junction.recall({key:name});
-    res.jsonp(results.data);
+    let results = await junction.recall({key: key});
+    res.jsonp(results);
   }
   catch (err) {
     logger.error(err.message);
@@ -42,14 +43,14 @@ async function getSettings (req, res) {
 async function putSettings (req, res) {
   logger.info('URI \'PUT settings\' was called.');
 
-  var name = req.params['name'];
+  var key = req.params['key'];
   var settings = req.body;
 
-  let smt = config.smt_settings;
+  let smt = config.settings_smt;
   let junction = storage.activate(smt);
 
   try {
-    let results = await junction.store(settings, {key: name})
+    let results = await junction.store(settings, {key: key});
     res.jsonp(results);
   }
   catch(err) {

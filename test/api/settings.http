@@ -1,0 +1,24 @@
+### guest:guest Public
+PUT http://localhost:8089/api/settings/myfavs HTTP/1.1
+Authorization: Basic guest guest
+
+{
+  "category": "music",
+  "genre": "rock-n-roll",
+  "favorites": ["The Beatles", "The Rolling Stones"]
+}
+
+### user:user User
+PUT http://localhost:8089/api/settings/myfavs HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "category": "music",
+  "genre": "rock-n-roll",
+  "favorites": ["The Beatles", "The Rolling Stones"]
+}
+
+### user:user User
+GET http://localhost:8089/api/settings/myfavs HTTP/1.1
+Authorization: Basic user user

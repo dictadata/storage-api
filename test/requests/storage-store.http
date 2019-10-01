@@ -1,0 +1,41 @@
+### elasticsearch|https://localhost:9200|test_schema|=Foo
+PUT http://localhost:8089/node/store/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C%3DFoo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+    "Foo": "first",
+    "Bar": "row",
+    "Baz": 123,
+    "Fobe": 1,
+    "Dt Test": "2018-10-07T00:00:00.000Z",
+    "enabled": true
+  }
+
+### elasticsearch|https://localhost:9200|test_schema|!Foo
+PUT http://localhost:8089/node/store/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C!Foo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+    "Foo": "first",
+    "Bar": "row",
+    "Baz": 123,
+    "Fobe": 1,
+    "Dt Test": "2018-10-07T00:00:00.000Z",
+    "enabled": true
+  }
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_table|=Foo
+PUT http://localhost:8089/node/store/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C%3DFoo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+    "Foo": "first",
+    "Bar": "row",
+    "Baz": 123,
+    "Fobe": 1,
+    "Dt Test": "2018-10-07T00:00:00.000Z",
+    "enabled": true
+  }
