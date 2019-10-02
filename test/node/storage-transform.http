@@ -1,0 +1,57 @@
+### transform test
+GET http://localhost:8089/node/transform/test HTTP/1.1
+Authorization: Basic admin admin
+
+### transfer
+POST http://localhost:8089/node/transform HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+    "source": {
+      "smt": "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo",
+      "options": {}
+    },
+    "destination": {
+      "smt": "elasticsearch|http://localhost:9200|test_transfer2|=Foo",
+      "options": {}
+    }
+}
+
+### transfer with transforms
+POST http://localhost:8089/node/transform HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+    "source": {
+      "smt": "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo",
+      "options": {}
+    },
+    "destination": {
+      "smt": "elasticsearch|http://localhost:9200|test_transform3|=Foo",
+      "options": {}
+    },
+    "transforms": {
+      "inject": {
+        "Fie": "where's fum?"
+      },
+      "match": {
+        "Bar": {
+          "op": "eq",
+          "value": "row"
+        }
+      },
+      "drop": {
+        "Baz": {
+          "op": "eq",
+          "value": 5678
+        }
+      },
+      "mapping": {
+        "Foo": "Foo",
+        "Bar": "Bar",
+        "Baz": "Bazzy"
+      }
+    }
+}

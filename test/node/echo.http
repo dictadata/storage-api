@@ -1,0 +1,24 @@
+### no user: Unauthorized
+GET http://localhost:8089/test/echo HTTP/1.1
+
+### invalid Authorization: defaults to Public role
+GET http://localhost:8089/test/echo HTTP/1.1
+Authorization: Basic Aladdin opensesame
+
+### Public guest:guest
+GET http://localhost:8089/test/echo HTTP/1.1
+Authorization: Basic guest guest
+
+### User admin:admin
+GET http://localhost:8089/test/echo?a=1&b=2 HTTP/1.1
+Authorization: Basic admin admin
+
+### User admin:admin
+GET http://localhost:8089/test/echo/x HTTP/1.1
+Authorization: Basic admin admin
+Content-Length: application/json
+
+{
+  "field1": "value1",
+  "field2": 22
+}

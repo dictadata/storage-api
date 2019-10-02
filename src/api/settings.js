@@ -20,7 +20,7 @@ module.exports = router;
 
 
 async function getSettings (req, res) {
-  logger.info('URI \'GET settings\' was called.');
+  logger.verbose('URI \'GET settings\' was called.');
 
   let key = req.params['key'];
 
@@ -41,7 +41,7 @@ async function getSettings (req, res) {
 }
 
 async function putSettings (req, res) {
-  logger.info('URI \'PUT settings\' was called.');
+  logger.verbose('URI \'PUT settings\' was called.');
 
   var key = req.params['key'];
   var settings = req.body;

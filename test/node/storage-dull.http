@@ -1,0 +1,28 @@
+### elasticsearch|http://localhost:9200|test_schema|uid
+DELETE http://localhost:8089/node/dull/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7Cfirst HTTP/1.1
+Authorization: Basic user user
+
+### elasticsearch|http://localhost:9200|test_schema|!Foo
+DELETE http://localhost:8089/node/dull/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C!Foo HTTP/1.1
+Authorization: Basic user user
+
+{
+  "key": "twenty"
+}
+
+### elasticsearch|http://localhost:9200|test_schema|=Foo
+DELETE http://localhost:8089/node/dull/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C%3DFoo HTTP/1.1
+Authorization: Basic user user
+
+{
+  "Foo": "twenty"
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
+DELETE http://localhost:8089/node/dull/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C%3DFoo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+    "Foo": "first"
+}

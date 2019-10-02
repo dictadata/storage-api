@@ -1,6 +1,6 @@
 ### Install Visual Studio Code extension: REST Client  humao.rest-client
 
-### non-user
+### unregisterd user
 DELETE http://localhost:8089/node/account HTTP/1.1
 Authorization: Basic aladdin opensesame
 Content-Type: application/json

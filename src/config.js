@@ -8,6 +8,8 @@ const path = require('path');
 var settings = {
   serverPort: '8089',
   realm: 'api',
+  // api configuration
+  accounts_smt: 'elasticsearch|http:/localhost:9200|api_accounts|!key',
 
   logPath: path.join(__dirname, '../log'),
 

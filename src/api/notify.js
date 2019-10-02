@@ -22,9 +22,9 @@ module.exports = router;
  * @param {*} res
  */
 function postMessage(req, res) {
-  logger.info("POST / was called.");
+  logger.verbose("POST / was called.");
 
-  console.log(req.body);
+  logger.verbose(req.body);
 
   let message = {
     from:    req.body.from || config.mail_fields.from,
@@ -37,10 +37,10 @@ function postMessage(req, res) {
 
   transport.sendMail(message, (error, info) => {
     if (error) {
-      console.log(error);
+      logger.error(error.message);
       res.jsonp({response:"failed"});
     } else {
-      console.log("Message sent: " + info.response);
+      logger.verbose("Message sent: " + info.response);
       res.jsonp({response:"accepted"});
     }
 

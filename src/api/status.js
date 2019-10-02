@@ -18,7 +18,7 @@ router.get('/', authorize([roles.User, roles.Admin, roles.Monitor]), api_status)
 module.exports = router;
 
 function api_status(request, response) {
-  logger.info('URI \'api\\status\' was called.');
+  logger.verbose('URI \'api\\status\' was called.');
 
   response.writeHead(200, { 'Content-Type': 'text/plain' });
   response.write('OK\r\n');
@@ -32,7 +32,7 @@ function api_status(request, response) {
 
 /*
 function statusElastic(request, response) {
-  console.log('URI \'esstatus\' was called.');
+  logger.verbose('URI \'esstatus\' was called.');
 
   let elastic = new Elastic(config.realm);
   elastic.status()

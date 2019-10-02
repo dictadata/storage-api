@@ -1,7 +1,7 @@
-### elasticsearch|https://localhost:9200|node_storage|=Foo
+### elasticsearch|http://localhost:9200|node_storage|=Foo
 GET http://localhost:8089/node/encoding/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C%3DFoo HTTP/1.1
 Authorization: Basic user user
 
-### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_table|=Foo
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
 GET http://localhost:8089/node/encoding/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C%3DFoo HTTP/1.1
 Authorization: Basic user user

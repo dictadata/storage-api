@@ -1,7 +1,7 @@
 ### no user
 GET http://localhost:8089/index.html HTTP/1.1
 
-### invalid user
+### unregisterd user
 GET http://localhost:8089/index.html HTTP/1.1
 Authorization: Basic someuser xyz
 

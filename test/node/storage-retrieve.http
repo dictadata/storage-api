@@ -1,0 +1,59 @@
+### elasticsearch|http://localhost:9200|test_schema|=Foo
+POST http://localhost:8089/node/retrieve/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C%3DFoo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "filter": {
+      "Foo": "first"
+    }
+  }
+}
+
+### elasticsearch|http://localhost:9200|test_schema|=Foo
+POST http://localhost:8089/node/retrieve/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C%3DFoo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "filter": {
+      "Bar": "row",
+      "Baz": { "gte": 0, "lte": 1000 }
+    },
+    "cues": {
+      "count": 3,
+      "order": {"Dt Test": "desc"}
+    }
+  }
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
+POST http://localhost:8089/node/retrieve/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C%3DFoo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "filter": {
+    "Foo": "first"
+  }
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
+POST http://localhost:8089/node/retrieve/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C%3DFoo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "filter": {
+      "Bar": "row",
+      "Baz": { "gte": 0, "lte": 1000 }
+    },
+    "cues": {
+      "count": 3,
+      "order": {"Dt Test": "desc"}
+    }
+  }
+}

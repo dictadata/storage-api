@@ -5,11 +5,11 @@
 
 const storagenode = require('@dicta-io/storage-node');
 const config = require('./config');
+const logger = require('./logger');
 const api = require('./api');
 
 config.routerPath = '/api';
 config.router = api;
 
-console.log('start');
+logger.info('start service');
 storagenode.start(config);
-console.log('finish');
