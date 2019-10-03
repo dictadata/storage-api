@@ -17,7 +17,7 @@ module.exports = {
     "logger": "readonly"
   },
   "rules": {
-    'arrow-parens': ["warn", "as-needed"],
+    'arrow-parens': ["warn", "always"],
     'generator-star-spacing': 1,
     'quotes': "off",
     'indent': ['warn', 2, { "MemberExpression": "off" }],

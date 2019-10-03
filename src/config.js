@@ -12,11 +12,10 @@ var settings = {
   accounts_smt: 'elasticsearch|http:/localhost:9200|api_accounts|!key',
 
   logPath: path.join(__dirname, '../log'),
-
   publicPath: path.join(__dirname, '../public'),
-
-  // path to directory to contain upload and download folders
   dataPath: path.join(__dirname, '../data'),
+
+  // max upload size
   maxFileSize: 200 * 1024 * 1024, // 200MB
 
   // settings for Codify
@@ -49,7 +48,7 @@ var settings = {
 if (process.env.NODE_ENV === 'development') {
 
   settings.serverPort = '8089';
-  settings.accounts_smt = 'elasticsearch|http:/localhost:9200|api_accounts|=userid';
+  settings.accounts_smt = 'elasticsearch|http:/localhost:9200|api_accounts|!userid';
 
 }
 
