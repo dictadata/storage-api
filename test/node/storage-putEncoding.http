@@ -1,5 +1,5 @@
 ### elasticsearch|http://localhost:9200|test_schema|=Foo
-PUT http://localhost:8089/node/encoding/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema2%7C%3DFoo HTTP/1.1
+PUT http://localhost:8089/node/encoding/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C%3DFoo HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
@@ -67,7 +67,7 @@ Content-Type: application/json
 }
 
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
-GET http://localhost:8089/node/encoding/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C%3DFoo HTTP/1.1
+PUT http://localhost:8089/node/encoding/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C%3DFoo HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
@@ -121,6 +121,65 @@ Content-Type: application/json
       "isNullable": true,
       "isKey": false,
       "label": "Date"
+    },
+    "enabled": {
+      "name": "enabled",
+      "type": "boolean",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "enabled"
+    }
+  }
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_transfer2|=Foo
+PUT http://localhost:8089/node/encoding/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_transfer2%7C%3DFoo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "model": "*",
+  "location": "*",
+  "schema": "storage_node",
+  "key": "*",
+  "fields": {
+    "Foo": {
+      "name": "Foo",
+      "type": "keyword",
+      "size": 0,
+      "default": null,
+      "isNullable": false,
+      "isKey": true,
+      "label": "Foo"
+    },
+    "Bar": {
+      "name": "Bar",
+      "type": "text",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Bar"
+    },
+    "Bazzy": {
+      "name": "Bazzy",
+      "type": "integer",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Baz"
+    },
+    "Fie": {
+      "name": "Fie",
+      "type": "text",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Fie fi fo fum"
     },
     "enabled": {
       "name": "enabled",

@@ -1,9 +1,12 @@
 ### guest:guest Public
-POST http://localhost:8089/api/nofity/ HTTP/1.1
+POST http://localhost:8089/api/nofity HTTP/1.1
 Authorization: Basic guest guest
 Content-Type: application/json
 
 {
+  "from": "",
+  "to": "",
+  "subject": "this is a notification",
   "text": "This is the notification message."
 }
 
@@ -13,5 +16,8 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
+  "from": "",
+  "to": "",
+  "subject": "this is a notification",
   "text": "This is the notification message."
 }

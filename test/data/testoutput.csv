@@ -1,0 +1,7 @@
+Foo,Bar,Baz,Fobe,Dt Test
+first,"row",123,1,2018-10-07
+second,"row",456,2.1,2018-10-07T05:00:00.000Z
+third,"row your boat",789,3,2018-10-18T05:00:00.000Z
+fourth,"boat",0,4.3,2018-10-10T14:13:30.500Z
+fifth,"downstream",-12,19,2018-10-18T05:00:00.000Z
+sixth,"",,,

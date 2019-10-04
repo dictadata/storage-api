@@ -5,10 +5,14 @@ GET http://localhost:8089/node/status HTTP/1.1
 GET http://localhost:8089/node/status HTTP/1.1
 Authorization: Basic Aladdin opensesame
 
-### Public guest:guest
+### guest:guest  Public
 GET http://localhost:8089/node/status HTTP/1.1
 Authorization: Basic guest guest
 
-### User admin:admin
+### user:user User
+GET http://localhost:8089/node/status HTTP/1.1
+Authorization: Basic user user
+
+### admin:admin  Admin
 GET http://localhost:8089/node/status HTTP/1.1
 Authorization: Basic admin admin

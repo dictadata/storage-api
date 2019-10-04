@@ -20,6 +20,16 @@ Content-Type: application/json
     "Foo": "first"
 }
 
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|!Foo
+GET http://localhost:8089/node/recall/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C!Foo HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+    "key": "first"
+}
+
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
 GET http://localhost:8089/node/recall/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C%3DFoo HTTP/1.1
 Authorization: Basic user user

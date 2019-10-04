@@ -30,7 +30,7 @@ Content-Type: application/json
     }
 }
 
-### user:user, will not get Admin rights
+### user:user, updates settings but will not get Admin rights
 PUT http://localhost:8089/node/account HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
