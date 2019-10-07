@@ -5,25 +5,25 @@
 
 const path = require('path');
 
-var settings = {
+var config = {
   serverPort: '8089',
   realm: 'api',
-  // api configuration
-  accounts_smt: 'elasticsearch|http:/localhost:9200|api_accounts|!key',
 
-  logPath: path.join(__dirname, '../log'),
-  publicPath: path.join(__dirname, '../public'),
   dataPath: path.join(__dirname, '../data'),
+  publicPath: path.join(__dirname, '../public'),
+  logPath: path.join(__dirname, '../log'),
+  logLevel: 'info',
+
+  smt: {
+    // storage node authentication
+    accounts: 'elasticsearch|http:/localhost:9200|api_accounts|!userid',
+
+    // api configuration
+    settings: 'elasticsearch|http:/localhost:9200|api_settings|!key',
+  },
 
   // max upload size
   maxFileSize: 200 * 1024 * 1024, // 200MB
-
-  // settings for Codify
-  maxKeywordLength: 32,
-  maxKeywordValues: 128,
-
-  // api configuration
-  settings_smt: 'elasticsearch|http:/localhost:9200|api_settings|!key',
 
   // mail message defaults
   mail_defaults: {
@@ -44,12 +44,13 @@ var settings = {
   }
 };
 
-// development settings
+// development config
 if (process.env.NODE_ENV === 'development') {
 
-  settings.serverPort = '8089';
-  settings.accounts_smt = 'elasticsearch|http:/localhost:9200|api_accounts|!userid';
+  config.serverPort = '8089';
+  config.logLevel = 'verbose';
+  config.smt.accounts = 'elasticsearch|http:/localhost:9200|api_accounts|!userid';
 
 }
 
-module.exports = settings;
+module.exports = config;

@@ -26,10 +26,10 @@ function postMessage(req, res) {
   logger.verbose(req.body);
 
   let message = {
-    from:    req.body.from || config.mail_fields.from,
-    to:      req.body.to || config.mail_fields.to || "",
-    subject: req.body.subject || config.mail_fields.subject || "",
-    text:    req.body.text || config.mail_fields.text || ""
+    from:    req.body.from || config.mail_defaults.from,
+    to:      req.body.to || config.mail_defaults.to || "",
+    subject: req.body.subject || config.mail_defaults.subject || "",
+    text:    req.body.text || config.mail_defaults.text || ""
   };
 
   let transport = mailer.createTransport(config.smtp_sender);
