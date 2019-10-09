@@ -16,7 +16,8 @@
     "@dicta-io/storage-junctions": "^0.3.4",
     "@dicta-io/storage-node": "^0.3.4",
     "express": "^4.17.1",
-    "formidable": "^1.2.1"
+    "formidable": "^1.2.1",
+    "nodemailer": "^6.3.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

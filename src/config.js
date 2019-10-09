@@ -33,7 +33,7 @@ var config = {
   // fileio max upload size
   maxFileSize: 200 * 1024 * 1024, // 200MB
 
-  // mail message defaults
+  // notify mail defaults
   mail_defaults: {
     from: "",
     to: "",
