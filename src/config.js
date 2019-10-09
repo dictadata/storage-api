@@ -22,7 +22,15 @@ var config = {
     settings: 'elasticsearch|http:/localhost:9200|api_settings|!key',
   },
 
-  // max upload size
+  // use node route handlers
+  node: {
+    useStorage: true,
+    useTransform: true,
+    useFileio: true,
+    useNotify: true
+  },
+
+  // fileio max upload size
   maxFileSize: 200 * 1024 * 1024, // 200MB
 
   // mail message defaults
