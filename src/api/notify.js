@@ -23,7 +23,7 @@ module.exports = router;
 function postMessage(req, res) {
   logger.verbose("POST / was called.");
 
-  logger.verbose(req.body);
+  logger.verbose(JSON.stringify(req.body));
 
   let message = {
     from:    req.body.from || config.mail_defaults.from,
@@ -37,10 +37,10 @@ function postMessage(req, res) {
   transport.sendMail(message, (error, info) => {
     if (error) {
       logger.error(error.message);
-      res.jsonp({response:"failed"});
+      res.jsonp({result:"failed", meta: error});
     } else {
       logger.verbose("Message sent: " + info.response);
-      res.jsonp({response:"accepted"});
+      res.jsonp({result:"ok", meta: info});
     }
 
   });
