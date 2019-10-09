@@ -23,7 +23,7 @@
       "runtimeExecutable": "nodemon",
       "runtimeArgs": [
         "--preserve-symlinks",
-        "--inspect"
+        "--inspect-brk"
       ],
       "env": {
         "DEBUG": "express:*"
