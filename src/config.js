@@ -19,7 +19,12 @@ var config = {
     accounts: 'elasticsearch|http:/localhost:9200|api_accounts|!userid',
 
     // api configuration
-    settings: 'elasticsearch|http:/localhost:9200|api_settings|!key',
+    settings: {
+      model: 'elasticsearch',
+      locus: 'http:/localhost:9200',
+      schema: 'api_settings',
+      key: '!key'
+    }
   },
 
   // use node route handlers
@@ -58,6 +63,13 @@ if (process.env.NODE_ENV === 'development') {
   config.serverPort = '8089';
   config.logLevel = 'verbose';
   config.smt.accounts = 'elasticsearch|http:/localhost:9200|api_accounts|!userid';
+
+  config.smt.settings = {
+    model: 'elasticsearch',
+    locus: 'http:/localhost:9200',
+    schema: 'api_settings',
+    key: '!key'
+  };
 
 }
 
