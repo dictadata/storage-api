@@ -1,6 +1,6 @@
 {
   "name": "@dicta-io/storage-api",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "Example REST API server extending @dicta-io/storage-node.",
   "author": "Drew O. Letcher",
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@dicta-io/storage-junctions": "^0.3.7",
-    "@dicta-io/storage-node": "^0.3.8",
+    "@dicta-io/storage-node": "^0.3.9",
     "express": "^4.17.1",
     "formidable": "^1.2.1",
     "nodemailer": "^6.3.1"
