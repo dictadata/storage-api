@@ -28,11 +28,11 @@ async function getSettings (req, res) {
 
   try {
     let results = await junction.recall({key: key});
-    res.jsonp(results);
+    res.set('Cache-Control', 'public, max-age=60, s-maxage=60').jsonp(results);
   }
   catch (err) {
     logger.error(err.message);
-    res.jsonp(err.message);
+    res.status(err.statusCode || 500).send(err.message);
   }
   finally {
     junction.relax();
@@ -50,10 +50,10 @@ async function putSettings (req, res) {
 
   try {
     let results = await junction.store(settings, {key: key});
-    res.jsonp(results);
+    res.set('Cache-Control', 'no-store').jsonp(results);
   }
   catch(err) {
     logger.error(err.message);
-    res.jsonp(err.message);
+    res.status(err.statusCode || 500).send(err.message);
   }
 }
