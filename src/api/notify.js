@@ -37,10 +37,10 @@ function postMessage(req, res) {
   transport.sendMail(message, (error, info) => {
     if (error) {
       logger.error(error.message);
-      res.jsonp({result:"failed", meta: error});
+      res.status(error.statusCode || 500).jsonp({result:"failed", meta: error});
     } else {
       logger.verbose("Message sent: " + info.response);
-      res.jsonp({result:"ok", meta: info});
+      res.set('Cache-Control', 'no-store').jsonp({result:"ok", meta: info});
     }
 
   });
