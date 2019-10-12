@@ -12,7 +12,7 @@ const mailer = require("nodemailer");
  * API routes
  */
 var router = express.Router();
-router.post("/", authorize([roles.User, roles.Admin]), postMessage);
+router.post("/", authorize([roles.Notify]), postMessage);
 module.exports = router;
 
 /**

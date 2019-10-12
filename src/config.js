@@ -14,6 +14,12 @@ var config = {
   logPath: path.join(__dirname, '../log'),
   logLevel: 'info',
 
+  // additional roles for app/api
+  roles: {
+    Notify: "Notify",
+    Editor: "Editor"
+  },
+
   smt: {
     // storage node authentication
     accounts: 'elasticsearch|http:/localhost:9200|api_accounts|!userid',
@@ -24,7 +30,15 @@ var config = {
       locus: 'http:/localhost:9200',
       schema: 'api_settings',
       key: '!key'
+    },
+    // api configuration
+    docs: {
+      model: 'elasticsearch',
+      locus: 'http:/localhost:9200',
+      schema: 'api_docs',
+      key: '!docname'
     }
+
   },
 
   // use node route handlers
