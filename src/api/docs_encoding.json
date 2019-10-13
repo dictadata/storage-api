@@ -1,0 +1,46 @@
+{
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "api_docs",
+    "key": "!name"
+  },
+  "fields": {
+    "name": {
+      "name": "name",
+      "type": "keyword",
+      "size": 0,
+      "default": null,
+      "isNullable": false,
+      "isKey": true,
+      "label": "name"
+    },
+    "title": {
+      "name": "title",
+      "type": "text",
+      "size": 0,
+      "default": "title",
+      "isNullable": false,
+      "isKey": false,
+      "label": "title"
+    },
+    "format": {
+      "name": "format",
+      "type": "keyword",
+      "size": 0,
+      "default": "md",
+      "isNullable": false,
+      "isKey": false,
+      "label": "format"
+    },
+    "document": {
+      "name": "document",
+      "type": "text",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "document"
+    }
+  }
+}

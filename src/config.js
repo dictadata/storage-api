@@ -68,7 +68,8 @@ var config = {
       user: "",
       pass: ""
     }
-  }
+  },
+
 };
 
 // development config

@@ -1,0 +1,17 @@
+### user
+POST http://localhost:8089/api/docs HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": {
+    "name": "doc one",
+    "title": "Document One",
+    "format": "md",
+    "document": "Some markup for the document."
+  }
+}
+
+### user
+GET http://localhost:8089/api/docs/doc%20one HTTP/1.1
+Authorization: Basic user user
