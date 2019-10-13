@@ -10,7 +10,20 @@ const config = require('../config');
 const fs = require("fs");
 const path = require('path');
 
-// wait until server config is updated before initializing
+/**
+ * API routes
+ */
+var router = express.Router();
+router.get('/', authorize([roles.User]), getDoc);
+router.get('/:name', authorize([roles.User]), getDoc);
+router.put('/', authorize([roles.Editor]), putDoc);
+router.put('/:name', authorize([roles.Editor]), putDoc);
+module.exports = router;
+
+/**
+ * startup
+ * Wait until server config is updated before initializing.
+ */
 startup.add( async (config) => {
   logger.verbose("docs startup");
   logger.info("docs SMT: " + JSON.stringify(config.smt.docs));
@@ -40,23 +53,20 @@ startup.add( async (config) => {
 });
 
 /**
- * API routes
+ * getDoc
+ * @param {*} req
+ * @param {*} res
  */
-var router = express.Router();
-router.get('/:docname', authorize([roles.User]), getDoc);
-router.post('/', authorize([roles.Editor]), postDoc);
-module.exports = router;
-
 async function getDoc (req, res) {
   logger.verbose('GET docs');
 
-  let docname = req.params['docname'] || req.body['name'];
+  let name = req.params['name'] || req.query['name'] || req.body['name'];
 
   let smt = config.smt.docs;
   let junction = storage.activate(smt);
 
   try {
-    let results = await junction.recall({key: docname});
+    let results = await junction.recall({key: name});
     res.set('Cache-Control', 'public, max-age=60, s-maxage=60').jsonp(results);
   }
   catch (err) {
@@ -68,17 +78,22 @@ async function getDoc (req, res) {
   }
 }
 
-async function postDoc (req, res) {
+/**
+ * postDoc
+ * @param {*} req
+ * @param {*} res
+ */
+async function putDoc (req, res) {
   logger.verbose('POST docs');
 
-  var docname = req.params['docname'] || req.body['name'];
+  let name = req.params['name'] || req.query['name'] || req.body['name'];
   var doc = req.body;
 
   let smt = config.smt.docs;
   let junction = storage.activate(smt);
 
   try {
-    let results = await junction.store(doc, {key: docname});
+    let results = await junction.store(doc, {key: name});
     res.set('Cache-Control', 'no-store').jsonp(results);
   }
   catch(err) {

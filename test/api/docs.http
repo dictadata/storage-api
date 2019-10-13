@@ -4,12 +4,10 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "data": {
-    "name": "doc one",
-    "title": "Document One",
-    "format": "md",
-    "document": "Some markup for the document."
-  }
+  "name": "doc one",
+  "title": "Document One",
+  "format": "md",
+  "document": "Some markup for the document."
 }
 
 ### user

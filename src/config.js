@@ -36,7 +36,7 @@ var config = {
       model: 'elasticsearch',
       locus: 'http:/localhost:9200',
       schema: 'api_docs',
-      key: '!docname'
+      key: '!name'
     }
 
   },
@@ -83,6 +83,13 @@ if (process.env.NODE_ENV === 'development') {
     model: 'elasticsearch',
     locus: 'http:/localhost:9200',
     schema: 'api_settings',
+    key: '!key'
+  };
+
+  config.smt.settings = {
+    model: 'elasticsearch',
+    locus: 'http:/localhost:9200',
+    schema: 'api_docs',
     key: '!key'
   };
 
