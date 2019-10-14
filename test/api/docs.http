@@ -1,15 +1,45 @@
-### user
-POST http://localhost:8089/api/docs HTTP/1.1
+### doc one
+PUT http://localhost:8089/api/docs HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "name": "doc one",
-  "title": "Document One",
-  "format": "md",
-  "document": "Some markup for the document."
+  "doc": {
+    "name": "doc one",
+    "title": "Document One",
+    "context": ["keyword1", "key phrase two", "heart"],
+    "format": "md",
+    "document": "Some markup for the document."
+  }
 }
+
+### doc two
+PUT http://localhost:8089/api/docs HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "doc": {
+    "name": "doc two",
+    "title": "Document Two",
+    "context": "keyword1, key phrase two ,heart",
+    "format": "md",
+    "document": "Some markup for the document."
+  }
+}
+
 
 ### user
 GET http://localhost:8089/api/docs/doc%20one HTTP/1.1
 Authorization: Basic user user
+
+### user
+GET http://localhost:8089/api/docs HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "match": {
+    "name": "doc two"
+  }
+}

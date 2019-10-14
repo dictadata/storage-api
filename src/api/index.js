@@ -11,7 +11,7 @@ const settings = require('./settings');
 const notify = require('./notify');
 
 /* sub routes */
-const router = express.Router();
+var router = express.Router();
 router.use('/status', status);
 router.use('/docs', docs);
 router.use('/settings', settings);

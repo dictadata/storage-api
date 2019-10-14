@@ -8,7 +8,9 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
+  "match": {
     "key": "first"
+  }
 }
 
 ### elasticsearch|http://localhost:9200|test_schema|=Foo
@@ -17,7 +19,9 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
+  "match": {
     "Foo": "first"
+  }
 }
 
 
@@ -27,7 +31,9 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
+  "match": {
     "key": "first"
+  }
 }
 
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
@@ -36,5 +42,7 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
+  "match": {
     "Foo": "first"
+  }
 }

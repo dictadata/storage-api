@@ -24,6 +24,15 @@
       "isKey": false,
       "label": "title"
     },
+    "context": {
+      "name": "context",
+      "type": "keyword",
+      "size": 0,
+      "default": "",
+      "isNullable": false,
+      "isKey": false,
+      "label": "context"
+    },
     "format": {
       "name": "format",
       "type": "keyword",

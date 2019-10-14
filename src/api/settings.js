@@ -3,8 +3,8 @@
 */
 "use strict";
 
-var {authorize, roles, logger} = require('@dicta-io/storage-node');
-var storage = require('@dicta-io/storage-junctions');
+const {authorize, roles, logger} = require('@dicta-io/storage-node');
+const storage = require('@dicta-io/storage-junctions');
 const express = require('express');
 const config = require('../config');
 
