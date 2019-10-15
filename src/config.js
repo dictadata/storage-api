@@ -31,12 +31,11 @@ var config = {
       schema: 'api_settings',
       key: '!key'
     },
-    // api configuration
     docs: {
       model: 'elasticsearch',
       locus: 'http:/localhost:9200',
       schema: 'api_docs',
-      key: '!name'
+      key: '!docid'
     }
 
   },

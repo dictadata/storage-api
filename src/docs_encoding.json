@@ -3,17 +3,17 @@
     "model": "*",
     "locus": "*",
     "schema": "api_docs",
-    "key": "!name"
+    "key": "!docid"
   },
   "fields": {
-    "name": {
-      "name": "name",
+    "docid": {
+      "name": "docid",
       "type": "keyword",
       "size": 0,
       "default": null,
       "isNullable": false,
       "isKey": true,
-      "label": "name"
+      "label": "docid"
     },
     "title": {
       "name": "title",
@@ -42,14 +42,32 @@
       "isKey": false,
       "label": "format"
     },
-    "document": {
-      "name": "document",
+    "author": {
+      "name": "author",
+      "type": "keyword",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "author"
+    },
+    "timestamp": {
+      "name": "timestamp",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "timestamp"
+    },
+    "content": {
+      "name": "content",
       "type": "text",
       "size": 0,
       "default": null,
       "isNullable": true,
       "isKey": false,
-      "label": "document"
+      "label": "content"
     }
   }
 }
