@@ -15,11 +15,20 @@
       "isKey": true,
       "label": "docid"
     },
+    "compilation": {
+      "name": "compilation",
+      "type": "keyword",
+      "size": 0,
+      "default": null,
+      "isNullable": false,
+      "isKey": false,
+      "label": "compilation"
+    },
     "title": {
       "name": "title",
       "type": "text",
       "size": 0,
-      "default": "title",
+      "default": null,
       "isNullable": false,
       "isKey": false,
       "label": "title"
@@ -28,19 +37,10 @@
       "name": "context",
       "type": "keyword",
       "size": 0,
-      "default": "",
+      "default": null,
       "isNullable": false,
       "isKey": false,
       "label": "context"
-    },
-    "format": {
-      "name": "format",
-      "type": "keyword",
-      "size": 0,
-      "default": "md",
-      "isNullable": false,
-      "isKey": false,
-      "label": "format"
     },
     "author": {
       "name": "author",
@@ -51,23 +51,32 @@
       "isKey": false,
       "label": "author"
     },
-    "timestamp": {
-      "name": "timestamp",
-      "type": "date",
+    "format": {
+      "name": "format",
+      "type": "keyword",
       "size": 0,
-      "default": null,
-      "isNullable": true,
+      "default": "plain",
+      "isNullable": false,
       "isKey": false,
-      "label": "timestamp"
+      "label": "format"
     },
-    "content": {
-      "name": "content",
+    "article": {
+      "name": "article",
       "type": "text",
       "size": 0,
       "default": null,
       "isNullable": true,
       "isKey": false,
-      "label": "content"
+      "label": "article"
+    },
+    "timestamp": {
+      "name": "timestamp",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": false,
+      "isKey": false,
+      "label": "timestamp"
     }
   }
 }

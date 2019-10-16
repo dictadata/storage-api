@@ -6,12 +6,13 @@ Content-Type: application/json
 {
   "doc": {
     "docid": "doc one",
+    "compilation": ["storage-node", "Storage API"],
     "title": "Document One",
     "context": ["keyword1", "key phrase two", "heart"],
-    "format": "md",
     "author": "DL",
-    "timestamp": null,
-    "content": "Some markup for the document."
+    "format": "md",
+    "article": "Some markup for the document.",
+    "timestamp": null
   }
 }
 
@@ -23,12 +24,13 @@ Content-Type: application/json
 {
   "doc": {
     "docid": "doc two",
+    "compilation": ["storage-node", "Accounts API"],
     "title": "Document Two",
     "context": "keyword1, key phrase two ,heart",
-    "format": "md",
     "author": "DL",
-    "timestamp": null,
-    "content": "Some markup for the document."
+    "format": "md",
+    "article": "Some markup for the document.",
+    "timestamp": null
   }
 }
 
@@ -56,10 +58,11 @@ Content-Type: application/json
 {
   "pattern": {
     "match": {
-      "keyword": "keyword1"
+      "context": "keyword1"
     },
     "cues": {
-      "fields": ["docid", "title"]
+      "fields": ["docid", "compilation", "title"],
+      "order": {"compilation": "asc"}
     }
   }
 }
