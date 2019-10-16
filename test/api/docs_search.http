@@ -1,0 +1,35 @@
+
+### user
+GET http://localhost:8089/api/docs/doc%20one HTTP/1.1
+Authorization: Basic user user
+
+### user
+GET http://localhost:8089/api/docs HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "match": {
+    "key": "doc two"
+  }
+}
+
+### user
+POST http://localhost:8089/api/docs HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "match": {
+      "context": "keyword1"
+    },
+    "cues": {
+      "fields": ["docid", "compilation", "title"],
+      "order": {
+        "compilation": {"order": "asc", "mode": "max"},
+        "compilation": {"order": "asc", "mode": "min"}
+      }
+    }
+  }
+}

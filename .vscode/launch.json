@@ -13,6 +13,9 @@
         "run-script",
         "debug"
       ],
+      "env": {
+        "LOG_LEVEL": "debug"
+      },
       "port": 9229,
       "outputCapture": "std"
     },

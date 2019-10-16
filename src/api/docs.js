@@ -50,7 +50,7 @@ async function getDoc (req, res) {
 }
 
 /**
- * postDoc
+ * putDoc
  * @param {*} req
  * @param {*} res
  */

@@ -6,7 +6,7 @@
 const storagenode = require('@dicta-io/storage-node');
 const config = require('./config');
 const api = require('./api');
-const docs = require('./docs');
+const docs = require('./docs_startup');
 
 config.routerPath = '/api';
 config.router = api;
