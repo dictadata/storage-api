@@ -31,7 +31,7 @@ async function getDoc (req, res) {
   let docid = req.params['docid'] || req.query['docid'] || (match && (match['docid'] || match['key']));
   let match = req.body.match;
 
-  let smt = config.smt.docs;
+  let smt = config.smt.$_docs;
   let junction = storage.activate(smt);
 
   try {
@@ -67,7 +67,7 @@ async function putDoc (req, res) {
   if (typeof doc.context === 'string')
     doc.context = doc.context.split(/\s*(?:,|$)\s*/);
 
-  let smt = config.smt.docs;
+  let smt = config.smt.$_docs;
   let junction = storage.activate(smt);
 
   try {
@@ -90,7 +90,7 @@ async function retrieveTitles(req, res) {
 
   let pattern = req.body.pattern || req.body;
 
-  let smt = config.smt.docs;
+  let smt = config.smt.$_docs;
   let junction = storage.activate(smt);
 
   try {

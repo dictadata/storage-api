@@ -20,22 +20,19 @@ var config = {
     Editor: "Editor"
   },
 
-  // placeholder, each property is "route": router
-  routes: {
-    //"api": null
-  },
   smt: {
     // storage node authentication
-    accounts: 'elasticsearch|http:/localhost:9200|api_accounts|!userid',
+    $_accounts: 'elasticsearch|http:/localhost:9200|api_accounts|!userid',
 
     // api configuration
-    settings: {
+    $_settings: {
       model: 'elasticsearch',
       locus: 'http:/localhost:9200',
       schema: 'api_settings',
       key: '!key'
     },
-    docs: {
+
+    $_docs: {
       model: 'elasticsearch',
       locus: 'http:/localhost:9200',
       schema: 'api_docs',
@@ -44,12 +41,11 @@ var config = {
 
   },
 
-  // use node route handlers
+  // use base node route handlers
   node: {
     useStorage: true,
-    useTransform: true,
-    useFileio: true,
-    useNotify: true
+    useTransfer: true,
+    useFileio: true
   },
 
   // fileio max upload size
@@ -80,16 +76,16 @@ if (process.env.NODE_ENV === 'development') {
 
   config.serverPort = '8089';
   config.logLevel = 'verbose';
-  config.smt.accounts = 'elasticsearch|http:/localhost:9200|api_accounts|!userid';
+  config.smt.$_accounts = 'elasticsearch|http:/localhost:9200|api_accounts|!userid';
 
-  config.smt.settings = {
+  config.smt.$_settings = {
     model: 'elasticsearch',
     locus: 'http:/localhost:9200',
     schema: 'api_settings',
     key: '!key'
   };
 
-  config.smt.settings = {
+  config.smt.$_docs = {
     model: 'elasticsearch',
     locus: 'http:/localhost:9200',
     schema: 'api_docs',

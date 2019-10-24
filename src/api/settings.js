@@ -23,7 +23,7 @@ async function getSettings (req, res) {
 
   let key = req.params['key'];
 
-  let smt = config.smt.settings;
+  let smt = config.smt.$_settings;
   let junction = storage.activate(smt);
 
   try {
@@ -45,7 +45,7 @@ async function putSettings (req, res) {
   var key = req.params['key'];
   var settings = req.body;
 
-  let smt = config.smt.settings;
+  let smt = config.smt.$_settings;
   let junction = storage.activate(smt);
 
   try {
