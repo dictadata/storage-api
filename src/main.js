@@ -5,10 +5,11 @@
 
 const storagenode = require('@dicta-io/storage-node');
 const config = require('./config');
-const api = require('./api');
-const docs = require('./docs_startup');
 
-config.routerPath = '/api';
-config.router = api;
+const api_router = require('./api');
+const docs_setup = require('./docs_setup');
 
+config.routes[config.realm] = api_router;
+
+storagenode.startup.add(docs_setup.startup);
 storagenode.start(config);

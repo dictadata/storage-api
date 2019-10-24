@@ -14,7 +14,7 @@
         "debug"
       ],
       "env": {
-        "LOG_LEVEL": "debug"
+        "LOG_LEVEL": "verbose"
       },
       "port": 9229,
       "outputCapture": "std"

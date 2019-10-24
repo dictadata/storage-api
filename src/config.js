@@ -20,6 +20,10 @@ var config = {
     Editor: "Editor"
   },
 
+  // placeholder, each property is "route": router
+  routes: {
+    //"api": null
+  },
   smt: {
     // storage node authentication
     accounts: 'elasticsearch|http:/localhost:9200|api_accounts|!userid',

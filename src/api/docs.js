@@ -28,8 +28,8 @@ module.exports = router;
 async function getDoc (req, res) {
   logger.verbose('GET docs');
 
-  let match = req.body.match;
   let docid = req.params['docid'] || req.query['docid'] || (match && (match['docid'] || match['key']));
+  let match = req.body.match;
 
   let smt = config.smt.docs;
   let junction = storage.activate(smt);

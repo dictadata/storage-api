@@ -3,9 +3,8 @@
 */
 "use strict";
 
-const { startup, logger, StorageError } = require('@dicta-io/storage-node');
+const { logger, StorageError } = require('@dicta-io/storage-node');
 const storage = require('@dicta-io/storage-junctions');
-const config = require('./config');
 const fs = require("fs");
 const path = require('path');
 
@@ -13,7 +12,7 @@ const path = require('path');
  * startup
  * Wait until server config is updated before initializing.
  */
-startup.add(async (config) => {
+exports.startup = async (config) => {
   logger.verbose("docs startup");
   logger.info("docs SMT: " + JSON.stringify(config.smt.docs));
 
@@ -39,4 +38,4 @@ startup.add(async (config) => {
   finally {
     junction.relax();
   }
-});
+};
