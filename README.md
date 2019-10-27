@@ -1,6 +1,6 @@
-# @dicta-io/storage-api
+# @dictadata/storage-api
 
-Example implementation of a REST API server using the @dicta-io/storage-node and @dicta-io/storage-junctions projects.
+Example implementation of a REST API server using the @dictadata/storage-node and @dictadata/storage-junctions projects.
 
 ## Getting Started
 

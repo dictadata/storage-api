@@ -3,7 +3,7 @@
  * server main.js
  */
 
-const storagenode = require('@dicta-io/storage-node');
+const storagenode = require('@dictadata/storage-node');
 const config = require('./config');
 
 const api_router = require('./api');

@@ -3,8 +3,8 @@
 */
 "use strict";
 
-const { logger, StorageError } = require('@dicta-io/storage-node');
-const storage = require('@dicta-io/storage-junctions');
+const { logger, StorageError } = require('@dictadata/storage-node');
+const storage = require('@dictadata/storage-junctions');
 const fs = require("fs");
 const path = require('path');
 

@@ -1,3 +1,3 @@
 call npm i
-call npm link @dicta-io/storage-junctions
-call npm link @dicta-io/storage-node
+call npm link @dictadata/storage-junctions
+call npm link @dictadata/storage-node

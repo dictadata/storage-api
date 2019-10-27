@@ -5,7 +5,7 @@
 
 // contains some simple, general purpose actions
 
-const {authorize,roles,logger} = require('@dicta-io/storage-node');
+const {authorize,roles,logger} = require('@dictadata/storage-node');
 const express = require('express');
 const config = require('../config');
 
