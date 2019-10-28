@@ -28,7 +28,7 @@ async function getSettings (req, res) {
 
   try {
     let results = await junction.recall({key: key});
-    res.set('Cache-Control', 'public, max-age=60, s-maxage=60').jsonp(results);
+    res.set('Cache-Control', 'public, max-age=60, s-maxage=60').jsonp({"settings": results.data});
   }
   catch (err) {
     logger.error(err.message);
@@ -43,7 +43,7 @@ async function putSettings (req, res) {
   logger.verbose('URI \'PUT settings\' was called.');
 
   var key = req.params['key'];
-  var settings = req.body;
+  var settings = req.body.settings || req.body || {};
 
   let smt = config.smt.$_settings;
   let junction = storage.activate(smt);
