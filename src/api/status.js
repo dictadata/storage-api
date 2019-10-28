@@ -17,7 +17,7 @@ router.get('/', authorize([roles.User, roles.Admin, roles.Monitor]), api_status)
 module.exports = router;
 
 function api_status(request, response) {
-  logger.verbose('URI \'api\\status\' was called.');
+  logger.verbose('api/status');
 
   response.writeHead(200, { 'Content-Type': 'text/plain' });
   response.write('OK\r\n');

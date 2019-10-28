@@ -1,13 +1,80 @@
 ### elasticsearch|http://localhost:9200|test_schema|=Foo
-PUT http://localhost:8089/node/encoding/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C%3DFoo HTTP/1.1
+PUT http://localhost:8089/node/encoding/es_test_schema_2 HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "model": "*",
-  "location": "*",
-  "schema": "storage_node",
-  "key": "*",
+  "smt": {
+    "model": "elasticsearch",
+    "locus": "http://localhost:9200",
+    "schema": "test_schema",
+    "key": "=Foo"
+  },
+  "fields": {
+    "Foo": {
+      "name": "Foo",
+      "type": "keyword",
+      "size": 0,
+      "default": null,
+      "isNullable": false,
+      "isKey": true,
+      "label": "Foo"
+    },
+    "Bar": {
+      "name": "Bar",
+      "type": "text",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Bar"
+    },
+    "Baz": {
+      "name": "Baz",
+      "type": "integer",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Baz"
+    },
+    "Fobe": {
+      "name": "Fobe",
+      "type": "float",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Fobe, ain't no Foo"
+    },
+    "Dt Test": {
+      "name": "Date Test",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Date"
+    },
+    "enabled": {
+      "name": "enabled",
+      "type": "boolean",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "enabled"
+    }
+  }
+}
+
+### elasticsearch test_schema
+PUT http://localhost:8089/node/encoding HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "smt": "es_test_schema_2",
   "fields": {
     "Foo": {
       "name": "Foo",
@@ -67,13 +134,13 @@ Content-Type: application/json
 }
 
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
-PUT http://localhost:8089/node/encoding/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C%3DFoo HTTP/1.1
-Authorization: Basic user user
+PUT http://localhost:8089/node/encoding/mysql_test_schema_2 HTTP/1.1
+Authorization: Basic admin admin
 Content-Type: application/json
 
 {
   "model": "*",
-  "location": "*",
+  "locus": "*",
   "schema": "storage_node",
   "key": "*",
   "fields": {
@@ -135,13 +202,13 @@ Content-Type: application/json
 }
 
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_transfer2|=Foo
-PUT http://localhost:8089/node/encoding/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_transfer2%7C%3DFoo HTTP/1.1
-Authorization: Basic user user
+PUT http://localhost:8089/node/encoding/mysql_test_schema_2 HTTP/1.1
+Authorization: Basic admin admin
 Content-Type: application/json
 
 {
   "model": "*",
-  "location": "*",
+  "locus": "*",
   "schema": "storage_node",
   "key": "*",
   "fields": {

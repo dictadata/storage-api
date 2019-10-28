@@ -1,0 +1,18 @@
+### drew@drewletcher.net
+POST http://localhost:8089/node/retrieve/es_test_schema_0 HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "match": {
+      "Bar": "row",
+      "Baz": { "gte": 100, "lte": 500 }
+    },
+    "consolidate": {
+      "baz_sum": { "sum": "Baz" },
+      "dt_min": { "min": "Dt Test" },
+      "dt_max": { "max": "Dt Test" }
+    }
+  }
+}

@@ -20,6 +20,10 @@ var config = {
     Editor: "Editor"
   },
 
+  routes: {
+
+  },
+
   smt: {
     // storage node authentication
     $_accounts: 'elasticsearch|http:/localhost:9200|api_accounts|!userid',
@@ -91,6 +95,21 @@ if (process.env.NODE_ENV === 'development') {
     schema: 'api_docs',
     key: '!key'
   };
+
+  config.smt.es_test_schema_0 = "elasticsearch|http://localhost:9200|test_schema|*";
+  config.smt.es_test_schema_1 = "elasticsearch|http://localhost:9200|test_schema|!Foo";
+  config.smt.es_test_schema_2 = "elasticsearch|http://localhost:9200|test_schema|=Foo";
+  config.smt.es_test_schema_u = "elasticsearch|http://localhost:9200|test_schema|first";
+
+  config.smt.es_test_transfer = "elasticsearch|http://localhost:9200|test_transfer|=Foo";
+  config.smt.es_test_transfer_2 = "elasticsearch|http://localhost:9200|test_transfer_2|=Foo";
+  config.smt.es_test_transfer_3 = "elasticsearch|http://localhost:9200|test_transfer_3|=Foo";
+
+  config.smt.mysql_test_schema_0 = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|*";
+  config.smt.mysql_test_schema_1 = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|!Foo";
+  config.smt.mysql_test_schema_2 = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo";
+
+  config.smt.mysql_test_transfer_2 = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_transfer_2|=Foo";
 
 }
 

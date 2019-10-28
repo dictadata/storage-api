@@ -1,17 +1,24 @@
 ### elasticsearch|http://localhost:9200|test_schema|*
-POST http://localhost:8089/node/retrieve/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C* HTTP/1.1
+POST http://localhost:8089/node/retrieve/es_test_schema_0 HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
 {
+  "pattern": {
+    "cues": {
+      "order": {"Foo": "asc"},
+      "count": 100
+    }
+  }
 }
 
 ### elasticsearch|http://localhost:9200|test_schema|*
-POST http://localhost:8089/node/retrieve/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C* HTTP/1.1
+POST http://localhost:8089/node/retrieve HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
 {
+  "smt": "es_test_schema_0",
   "pattern": {
     "match": {
       "Foo": "first"
@@ -20,7 +27,7 @@ Content-Type: application/json
 }
 
 ### elasticsearch|http://localhost:9200|test_schema|=Foo
-POST http://localhost:8089/node/retrieve/elasticsearch%7Chttp%3A%2F%2Flocalhost%3A9200%7Ctest_schema%7C* HTTP/1.1
+POST http://localhost:8089/node/retrieve/es_test_schema_2 HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
@@ -28,18 +35,18 @@ Content-Type: application/json
   "pattern": {
     "match": {
       "Bar": "row",
-      "Baz": { "gte": 400, "lte": 1000 }
+      "Baz": { "gte": 100, "lte": 500 }
     },
     "cues": {
       "count": 3,
-      "order": {"Dt Test": "desc"}
+      "order": {"Foo": "asc"}
     }
   }
 }
 
 
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
-POST http://localhost:8089/node/retrieve/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C* HTTP/1.1
+POST http://localhost:8089/node/retrieve/mysql_test_schema_2 HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
@@ -47,7 +54,7 @@ Content-Type: application/json
 }
 
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
-POST http://localhost:8089/node/retrieve/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C* HTTP/1.1
+POST http://localhost:8089/node/retrieve/mysql_test_schema_2 HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
@@ -58,7 +65,7 @@ Content-Type: application/json
 }
 
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|test_schema|=Foo
-POST http://localhost:8089/node/retrieve/mysql%7Chost%3Dlocalhost%3Buser%3Ddicta%3Bpassword%3Ddicta%3Bdatabase%3Dstorage_node%7Ctest_schema%7C* HTTP/1.1
+POST http://localhost:8089/node/retrieve/mysql_test_schema_2 HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
@@ -66,7 +73,7 @@ Content-Type: application/json
   "pattern": {
     "match": {
       "Bar": "row",
-      "Baz": { "gte": 200, "lte": 500 }
+      "Baz": { "gte": 100, "lte": 500 }
     },
     "cues": {
       "count": 3,
