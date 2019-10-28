@@ -6,6 +6,7 @@ Authorization: Basic guest guest
 Content-Type: application/json
 
 {
+  "account": {
     "userid": "guest",
     "password": "guest",
     "roles": ["Public","User"],
@@ -13,6 +14,7 @@ Content-Type: application/json
       "homepage": "/guest/myhomepage",
       "theme": "light"
     }
+  }
 }
 
 ### guest:guest - changed by admin
@@ -21,6 +23,7 @@ Authorization: Basic admin admin
 Content-Type: application/json
 
 {
+  "account": {
     "userid": "guest",
     "password": "guest",
     "roles": ["Public","User"],
@@ -28,6 +31,7 @@ Content-Type: application/json
       "homepage": "/guest/myhomepage",
       "theme": "dark"
     }
+  }
 }
 
 ### user:user, updates settings but will not get Admin rights
@@ -36,6 +40,7 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
+  "account": {
     "userid": "user",
     "password": "user",
     "roles": ["Public","User","Admin"],
@@ -43,4 +48,5 @@ Content-Type: application/json
       "homepage": "/home",
       "theme": "green"
     }
+  }
 }

@@ -6,8 +6,10 @@ Authorization: Basic aladdin opensesame
 Content-Type: application/json
 
 {
+  "account": {
     "userid": "guest",
     "password": "guest"
+  }
 }
 
 ### dull by owner, guest does not have User rights
@@ -16,8 +18,10 @@ Authorization: Basic guest guest
 Content-Type: application/json
 
 {
+  "account": {
     "userid": "guest",
     "password": "guest"
+  }
 }
 
 ### guest:guest deleted by admin
@@ -26,7 +30,9 @@ Authorization: Basic admin admin
 Content-Type: application/json
 
 {
+  "account": {
     "userid": "guest"
+  }
 }
 
 ### user:user
@@ -35,6 +41,8 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
+  "account": {
     "userid": "user",
     "password": "user"
+  }
 }
