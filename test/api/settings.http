@@ -4,9 +4,11 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "category": "music",
-  "genre": "rock-n-roll",
-  "favorites": ["The Beatles", "The Rolling Stones"]
+  "settings": {
+    "category": "music",
+    "genre": "rock-n-roll",
+    "favorites": ["The Beatles", "The Rolling Stones"]
+  }
 }
 
 ### user User
@@ -18,8 +20,10 @@ PUT http://localhost:8089/api/settings/myfavs HTTP/1.1
 Authorization: Basic guest guest
 
 {
-  "category": "music",
-  "genre": "rock-n-roll",
-  "favorites": ["The Beatles", "The Rolling Stones"]
+  "settings": {
+    "category": "music",
+    "genre": "rock-n-roll",
+    "favorites": ["The Beatles", "The Rolling Stones"]
+  }
 }
 
