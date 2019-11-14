@@ -1,82 +1,99 @@
 {
   "smt": {
     "model": "*",
-    "locus": "*",
+    "location": "*",
     "schema": "api_docs",
     "key": "!docid"
   },
   "fields": {
     "docid": {
-      "name": "docid",
       "type": "keyword",
-      "size": 0,
+      "size": 64,
       "default": null,
       "isNullable": false,
-      "isKey": true,
-      "label": "docid"
+      "isKey": true
     },
     "compilation": {
-      "name": "compilation",
-      "type": "keyword",
-      "size": 0,
-      "default": null,
-      "isNullable": false,
-      "isKey": false,
-      "label": "compilation"
+      "type": "array",
+      "default": [],
+      "isNullable": true,
+      "fields": {
+        "section": {
+          "type": "keyword",
+          "size": 64,
+          "default": "x",
+          "isNullable": false
+        }
+      }
     },
     "title": {
-      "name": "title",
       "type": "text",
-      "size": 0,
-      "default": null,
+      "size": 256,
+      "default": "",
       "isNullable": false,
-      "isKey": false,
-      "label": "title"
+      "isKey": false
     },
     "context": {
-      "name": "context",
-      "type": "keyword",
-      "size": 0,
-      "default": null,
-      "isNullable": false,
-      "isKey": false,
-      "label": "context"
+      "type": "array",
+      "default": [],
+      "isNullable": true,
+      "fields": {
+        "keywords": {
+          "type": "keyword",
+          "size": 64,
+          "default": null,
+          "isNullable": false
+        }
+      }
     },
     "author": {
-      "name": "author",
       "type": "keyword",
-      "size": 0,
+      "size": 64,
       "default": null,
       "isNullable": true,
-      "isKey": false,
-      "label": "author"
+      "isKey": false
+    },
+    "byline": {
+      "type": "text",
+      "size": 80,
+      "default": null,
+      "isNullable": true,
+      "isKey": false
+    },
+    "dateline": {
+      "type": "text",
+      "size": 80,
+      "default": null,
+      "isNullable": true,
+      "isKey": false
     },
     "format": {
-      "name": "format",
       "type": "keyword",
-      "size": 0,
-      "default": "plain",
+      "size": 16,
+      "default": "md",
       "isNullable": false,
-      "isKey": false,
-      "label": "format"
+      "isKey": false
     },
     "article": {
-      "name": "article",
       "type": "text",
       "size": 0,
       "default": null,
       "isNullable": true,
-      "isKey": false,
-      "label": "article"
+      "isKey": false
     },
-    "timestamp": {
-      "name": "timestamp",
+    "dateCreated": {
       "type": "date",
       "size": 0,
       "default": null,
-      "isNullable": false,
-      "isKey": false,
-      "label": "timestamp"
+      "isNullable": true,
+      "isKey": false
+    },
+    "dateUpdated": {
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false
     }
   }
 }

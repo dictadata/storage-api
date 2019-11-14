@@ -60,8 +60,10 @@ async function putDoc (req, res) {
   let match = req.body.match;
   let docid = req.params['docid'] || req.query['docid'] || (match && (match['docid'] || match['key']));
   var doc = req.body.doc || {};
-  if (!doc.timestamp)
-    doc.timestamp = new Date();
+
+  if (!doc.created)
+    doc.created = new Date();
+  doc.updated = new Date();
   if (!doc.author)
     doc.author = req.user.userid;
   if (typeof doc.context === 'string')

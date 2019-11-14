@@ -93,7 +93,7 @@ if (process.env.NODE_ENV === 'development') {
     model: 'elasticsearch',
     locus: 'http:/localhost:9200',
     schema: 'api_docs',
-    key: '!key'
+    key: '!docid'
   };
 
   config.smt.es_test_schema_0 = "elasticsearch|http://localhost:9200|test_schema|*";

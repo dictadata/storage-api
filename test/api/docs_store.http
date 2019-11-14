@@ -10,9 +10,11 @@ Content-Type: application/json
     "title": "Document One",
     "context": ["keyword1", "key phrase two", "heart"],
     "author": "DL",
+    "dateline": "Mon Apr 1, 2019 1:30PM",
     "format": "md",
     "article": "Some markup for the document.",
-    "timestamp": null
+    "created": null,
+    "updated": null
   }
 }
 
@@ -29,8 +31,7 @@ Content-Type: application/json
     "context": "keyword1, key phrase two ,heart",
     "author": "DL",
     "format": "md",
-    "article": "Some markup for the document.",
-    "timestamp": null
+    "article": "Some markup for the document."
   }
 }
 
@@ -48,7 +49,7 @@ Content-Type: application/json
     "author": "DL",
     "format": "md",
     "article": "Some markup for the Engram class.",
-    "timestamp": null
+    "byline": "by Drew Letcher for the Evening Post"
   }
 }
 

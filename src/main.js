@@ -7,9 +7,9 @@ const storagenode = require('@dictadata/storage-node');
 const config = require('./config');
 
 const api_router = require('./api');
-const docs_setup = require('./docs_setup');
+const docs_startup = require('./docs_startup');
 
-config.routes[config.realm] = api_router;
+config.routes["/" + config.realm] = api_router;
 
-storagenode.startup.add(docs_setup.startup);
+storagenode.startup.add(docs_startup.startup);
 storagenode.start(config);
