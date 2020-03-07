@@ -31,10 +31,11 @@ async function getDoc (req, res) {
   let docid = req.params['docid'] || req.query['docid'] || (match && (match['docid'] || match['key']));
   let match = req.body.match;
 
-  let smt = config.smt.$_docs;
-  let junction = storage.activate(smt);
-
+  var junction;
   try {
+    let smt = config.smt.$_docs;
+    junction = storage.activate(smt);
+
     let results = await junction.recall({key: docid});
     results.doc = results.data;
     delete results.data;
@@ -45,7 +46,8 @@ async function getDoc (req, res) {
     res.status(err.statusCode || 500).send(err.message);
   }
   finally {
-    junction.relax();
+    if (junction)
+      junction.relax();
   }
 }
 
@@ -69,16 +71,21 @@ async function putDoc (req, res) {
   if (typeof doc.context === 'string')
     doc.context = doc.context.split(/\s*(?:,|$)\s*/);
 
-  let smt = config.smt.$_docs;
-  let junction = storage.activate(smt);
-
+  var junction;
   try {
+    let smt = config.smt.$_docs;
+    junction = storage.activate(smt);
+
     let results = await junction.store(doc, {key: docid});
     res.set('Cache-Control', 'no-store').jsonp(results);
   }
   catch(err) {
     logger.error(err.message);
     res.status(err.statusCode || 500).send(err.message);
+  }
+  finally {
+    if (junction)
+      junction.relax();
   }
 }
 
@@ -92,10 +99,11 @@ async function retrieveTitles(req, res) {
 
   let pattern = req.body.pattern || req.body;
 
-  let smt = config.smt.$_docs;
-  let junction = storage.activate(smt);
-
+  var junction;
   try {
+    let smt = config.smt.$_docs;
+    junction = storage.activate(smt);
+
     let results = await junction.retrieve(pattern);
     results.doc = results.data;
     delete results.data;
@@ -106,6 +114,7 @@ async function retrieveTitles(req, res) {
     res.status(err.statusCode || 500).send(err.message);
   }
   finally {
-    junction.relax();
+    if (junction)
+      junction.relax();
   }
 }

@@ -23,10 +23,11 @@ async function getSettings (req, res) {
 
   let key = req.params['key'];
 
-  let smt = config.smt.$_settings;
-  let junction = storage.activate(smt);
-
+  var junction;
   try {
+    let smt = config.smt.$_settings;
+    junction = storage.activate(smt);
+
     let results = await junction.recall({key: key});
     res.set('Cache-Control', 'public, max-age=60, s-maxage=60').jsonp({"settings": results.data});
   }
@@ -35,7 +36,8 @@ async function getSettings (req, res) {
     res.status(err.statusCode || 500).send(err.message);
   }
   finally {
-    junction.relax();
+    if (junction)
+      junction.relax();
   }
 }
 
@@ -45,15 +47,20 @@ async function putSettings (req, res) {
   var key = req.params['key'];
   var settings = req.body.settings || req.body || {};
 
-  let smt = config.smt.$_settings;
-  let junction = storage.activate(smt);
-
+  var junction;
   try {
+    let smt = config.smt.$_settings;
+    junction = storage.activate(smt);
+
     let results = await junction.store(settings, {key: key});
     res.set('Cache-Control', 'no-store').jsonp(results);
   }
   catch(err) {
     logger.error(err.message);
     res.status(err.statusCode || 500).send(err.message);
+  }
+  finally {
+    if (junction)
+      junction.relax();
   }
 }

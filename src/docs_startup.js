@@ -21,9 +21,10 @@ exports.startup = async (config) => {
     throw new StorageError({ statusCode: 400 }, "invalid key type in config.smt.$_docs");
   }
 
-  var junction = storage.activate(config.smt.$_docs);
-
+  var junction;
   try {
+    junction = storage.activate(config.smt.$_docs);
+
     const docsEncoding = JSON.parse(fs.readFileSync(path.join(__dirname, 'docs_encoding.json')));
 
     let encoding = await junction.putEncoding(docsEncoding);
@@ -36,6 +37,7 @@ exports.startup = async (config) => {
     logger.error('docs startup failed: ' + err.message);
   }
   finally {
-    junction.relax();
+    if (junction)
+      junction.relax();
   }
 };
