@@ -1,0 +1,23 @@
+### guest:guest Public
+POST http://localhost:8089/my-api/notify HTTP/1.1
+Authorization: Basic guest guest
+Content-Type: application/json
+
+{
+  "from": "",
+  "to": "",
+  "subject": "this is a notification",
+  "text": "This is the notification message."
+}
+
+### user:user User
+POST http://localhost:8089/my-api/notify HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "from": "",
+  "to": "",
+  "subject": "this is a notification",
+  "text": "This is the notification message."
+}

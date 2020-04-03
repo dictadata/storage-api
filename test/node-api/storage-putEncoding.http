@@ -1,0 +1,270 @@
+### elasticsearch|http://localhost:9200|foo_schema|=Foo
+PUT http://localhost:8089/node/encoding/es_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "smt": {
+    "model": "elasticsearch",
+    "locus": "http://localhost:9200",
+    "schema": "foo_schema",
+    "key": "=Foo"
+  },
+  "fields": {
+    "Foo": {
+      "name": "Foo",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": false,
+      "isKey": true,
+      "label": "Foo"
+    },
+    "Bar": {
+      "name": "Bar",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Bar"
+    },
+    "Baz": {
+      "name": "Baz",
+      "type": "integer",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Baz"
+    },
+    "Fobe": {
+      "name": "Fobe",
+      "type": "float",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Fobe, ain't no Foo"
+    },
+    "Dt Test": {
+      "name": "Dt Test",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Dt Test"
+    },
+    "enabled": {
+      "name": "enabled",
+      "type": "boolean",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "enabled"
+    }
+  }
+}
+
+### elasticsearch foo_schema
+PUT http://localhost:8089/node/encoding HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "smt": "es_foo_schema_pk",
+  "fields": {
+    "Foo": {
+      "name": "Foo",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": false,
+      "isKey": true,
+      "label": "Foo"
+    },
+    "Bar": {
+      "name": "Bar",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Bar"
+    },
+    "Baz": {
+      "name": "Baz",
+      "type": "integer",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Baz"
+    },
+    "Fobe": {
+      "name": "Fobe",
+      "type": "float",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Fobe, ain't no Foo"
+    },
+    "Dt Test": {
+      "name": "Dt Test",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Dt Test"
+    },
+    "enabled": {
+      "name": "enabled",
+      "type": "boolean",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "enabled"
+    }
+  }
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+PUT http://localhost:8089/node/encoding/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "model": "*",
+  "locus": "*",
+  "schema": "storage_node",
+  "key": "*",
+  "fields": {
+    "Foo": {
+      "name": "Foo",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": false,
+      "isKey": true,
+      "label": "Foo"
+    },
+    "Bar": {
+      "name": "Bar",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Bar"
+    },
+    "Baz": {
+      "name": "Baz",
+      "type": "integer",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Baz"
+    },
+    "Fobe": {
+      "name": "Fobe",
+      "type": "float",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Fobe, ain't no Foo"
+    },
+    "Dt Test": {
+      "name": "Dt Test",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Dt Test"
+    },
+    "enabled": {
+      "name": "enabled",
+      "type": "boolean",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "enabled"
+    }
+  }
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_transfer2|=Foo
+PUT http://localhost:8089/node/encoding/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "model": "*",
+  "locus": "*",
+  "schema": "storage_node",
+  "key": "*",
+  "fields": {
+    "Foo": {
+      "name": "Foo",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": false,
+      "isKey": true,
+      "label": "Foo"
+    },
+    "Bar": {
+      "name": "Bar",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Bar"
+    },
+    "Baz": {
+      "name": "Baz",
+      "type": "integer",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Baz"
+    },
+    "Fobe": {
+      "name": "Fobe",
+      "type": "float",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Fobe, ain't no Foo"
+    },
+    "Dt Test": {
+      "name": "Dt Test",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Dt Test"
+    },
+    "enabled": {
+      "name": "enabled",
+      "type": "boolean",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "enabled"
+    }
+  }
+}

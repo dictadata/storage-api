@@ -1,0 +1,86 @@
+### Install Visual Studio Code extension: REST Client  humao.rest-client
+
+### dullboy, updates settings but will not get Admin rights
+PUT http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic dullboy dullboy
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "dullboy",
+    "password": "dullboy",
+    "roles": ["Public","User","Editor"],
+    "settings": {
+      "homepage": "/home",
+      "theme": "vue"
+    }
+  }
+}
+
+### guest:guest - guest does not have User rights
+PUT http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic guest guest
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "guest",
+    "password": "guest",
+    "roles": ["Public","User"],
+    "settings": {
+      "homepage": "/guest/myhomepage",
+      "theme": "light"
+    }
+  }
+}
+
+### guest:guest - changed by admin
+PUT http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "guest",
+    "password": "guest",
+    "roles": ["Public","Demo"],
+    "settings": {
+      "homepage": "/guest/myhomepage",
+      "theme": "dark"
+    }
+  }
+}
+
+### user - changed by user
+PUT http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "user",
+    "password": "user",
+    "roles": ["Public","User","Admin"],
+    "settings": {
+      "homepage": "/home",
+      "theme": "dark"
+    }
+  }
+}
+
+### user - changed by admin
+PUT http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "user",
+    "password": "user",
+    "roles": ["Public","User","ETL", "Notify", "Editor"],
+    "settings": {
+      "homepage": "/home",
+      "theme": "dark"
+    }
+  }
+}

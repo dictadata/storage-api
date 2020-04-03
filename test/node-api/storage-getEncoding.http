@@ -1,0 +1,25 @@
+### elasticsearch|http://localhost:9200|node_storage|=Foo
+GET http://localhost:8089/node/encoding/es_foo_schema_pk HTTP/1.1
+Authorization: Basic admin admin
+
+### elasticsearch|http://localhost:9200|node_storage|=Foo
+GET http://localhost:8089/node/encoding HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "smt": "es_foo_schema_pk"
+}
+
+### elasticsearch|http://localhost:9200|node_storage|=Foo
+GET http://localhost:8089/node/encoding HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "smt": "accounts"
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+GET http://localhost:8089/node/encoding/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic admin admin

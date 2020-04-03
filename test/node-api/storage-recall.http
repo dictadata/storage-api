@@ -1,0 +1,39 @@
+### elasticsearch|http://localhost:9200|foo_schema|first
+GET http://localhost:8089/node/recall/es_foo_schema_id HTTP/1.1
+Authorization: Basic admin admin
+
+### elasticsearch|http://localhost:9200|foo_schema|!Foo
+GET http://localhost:8089/node/recall/es_foo_schema_ks HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "key": "first"
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|=Foo
+GET http://localhost:8089/node/recall HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "smt": "es_foo_schema_pk",
+  "pattern": {
+    "match": {
+      "Foo": "first"
+    }
+  }
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+GET http://localhost:8089/node/recall/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "pattern": {
+    "match": {
+      "Foo": "first"
+    }
+  }
+}

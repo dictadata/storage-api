@@ -23,15 +23,17 @@ exports.startup = async (config) => {
 
   var junction;
   try {
-    junction = storage.activate(config.smt.$_docs);
+    junction = await storage.activate(config.smt.$_docs);
 
     const docsEncoding = JSON.parse(fs.readFileSync(path.join(__dirname, 'docs_encoding.json')));
 
     let encoding = await junction.putEncoding(docsEncoding);
-    if (encoding)
-      logger.info("docs schema valid: " + junction._engram.smt.schema);
+    if (typeof encoding === "object")
+      logger.info("docs schema created");
+    else if (typeof encoding === "string" && encoding === "schema exists")
+      logger.info("docs schema exists");
     else
-      logger.warn("could not create docs schema, maybe it already exists");
+      logger.warn("could not create docs schema");
   }
   catch (err) {
     logger.error('docs startup failed: ' + err.message);

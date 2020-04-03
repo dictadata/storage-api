@@ -1,0 +1,23 @@
+### elasticsearch defined schema
+GET http://localhost:8089/node/list/es_foo_schema_pk HTTP/1.1
+Authorization: Basic admin admin
+
+### elasticsearch *
+GET http://localhost:8089/node/list/es_foo_schema_pk?schema=* HTTP/1.1
+Authorization: Basic admin admin
+
+### elasticsearch foo*
+GET http://localhost:8089/node/list/es_foo_schema_pk?schema=foo* HTTP/1.1
+Authorization: Basic admin admin
+
+### mysql defined schema
+GET http://localhost:8089/node/list/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic admin admin
+
+### mysql *
+GET http://localhost:8089/node/list/mysql_foo_schema_pk?schema=* HTTP/1.1
+Authorization: Basic admin admin
+
+### mysql foo*
+GET http://localhost:8089/node/list/mysql_foo_schema_pk?schema=foo* HTTP/1.1
+Authorization: Basic admin admin

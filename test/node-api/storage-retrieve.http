@@ -1,0 +1,85 @@
+### elasticsearch|http://localhost:9200|foo_schema|*
+POST http://localhost:8089/node/retrieve/es_foo_schema HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "cues": {
+      "order": {"Foo": "asc"},
+      "count": 100
+    }
+  }
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|*
+POST http://localhost:8089/node/retrieve HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "smt": "es_foo_schema_ks",
+  "pattern": {
+    "match": {
+      "Foo": "first"
+    }
+  }
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|=Foo
+POST http://localhost:8089/node/retrieve/es_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "match": {
+      "Bar": "row",
+      "Baz": { "gte": 100, "lte": 500 }
+    },
+    "cues": {
+      "count": 3,
+      "order": {"Foo": "asc"}
+    }
+  }
+}
+
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+POST http://localhost:8089/node/retrieve/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+POST http://localhost:8089/node/retrieve/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "match": {
+      "Foo": "first"
+    }
+  }
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+POST http://localhost:8089/node/retrieve/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "match": {
+      "Bar": "row",
+      "Baz": { "gte": 10, "lte": 500 }
+    },
+    "cues": {
+      "count": 3,
+      "order": {"Dt Test": "desc"}
+    }
+  }
+}

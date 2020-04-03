@@ -1,0 +1,22 @@
+{
+  "filter": {
+    "match": {
+      "Bar": "row"
+    },
+    "drop": {
+      "Baz": { "gt": 400, "lt": 500 }
+    }
+  },
+  "fields": {
+    "mapping": {
+      "Foo": "foo",
+      "Bar": "bar",
+      "Baz": "baz",
+      "Fobe": "fobe",
+      "Dt Test": "dt_test",
+      "enabled": "enabled",
+      "subObj1.state": "state",
+      "subObj2.subsub.izze": "izze"
+    }
+  }
+}

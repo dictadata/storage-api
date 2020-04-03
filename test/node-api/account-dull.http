@@ -1,0 +1,60 @@
+### Install Visual Studio Code extension: REST Client  humao.rest-client
+
+### dullboy
+DELETE http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic dullboy dullboy
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "dullboy",
+    "password": "dullboy"
+  }
+}
+
+### unregisterd user
+DELETE http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic aladdin opensesame
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "guest",
+    "password": "guest"
+  }
+}
+
+### dull by owner, guest does not have User rights
+DELETE http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic guest guest
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "guest",
+    "password": "guest"
+  }
+}
+
+### guest:guest deleted by admin
+DELETE http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "guest"
+  }
+}
+
+### user:user
+DELETE http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "user",
+    "password": "user"
+  }
+}

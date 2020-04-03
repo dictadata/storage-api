@@ -1,0 +1,63 @@
+### transfer test
+GET http://localhost:8089/node/transfer/test HTTP/1.1
+Authorization: Basic admin admin
+
+### transfer
+POST http://localhost:8089/node/transfer HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "source": {
+    "smt": "csv_foofile",
+    "options": {}
+  },
+  "destination": {
+    "smt": "mysql_foo_schema_pk",
+    "options": {}
+  }
+}
+
+### transfer
+POST http://localhost:8089/node/transfer HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "source": {
+    "smt": "mysql_foo_schema_pk",
+    "options": {}
+  },
+  "destination": {
+    "smt": "es_foo_transfer_2",
+    "options": {}
+  }
+}
+
+### weather
+POST http://localhost:8089/node/transfer HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "source": {
+    "smt": "rest_weather_forecast",
+    "options": {
+        "headers": {
+          "Accept": "application/ld+json",
+          "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+        },
+        "reader": {
+          "extract": {
+            "encoding": "",
+            "data": "periods"
+          }
+        }
+    }
+  },
+  "destination": {
+    "smt": "mysql_rest_forecast",
+    "options": {}
+  }
+}
+

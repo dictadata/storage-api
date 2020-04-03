@@ -1,0 +1,119 @@
+### elasticsearch|http://localhost:9200|foo_schema|!
+### if data list then elasticsource generates the key
+PUT http://localhost:8089/node/store/es_foo_schema HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": [{
+    "Foo": "first",
+    "Bar": "row",
+    "Baz": 831,
+    "Fobe": 129,
+    "Dt Test": "2019-10-07T08:00:00",
+    "enabled": true
+  }]
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|!
+### if dictionary object then app provides the key
+PUT http://localhost:8089/node/store/es_foo_schema HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": {
+    "first": {
+      "Foo": "first",
+      "Bar": "row",
+      "Baz": 831,
+      "Fobe": 129,
+      "Dt Test": "2019-10-07T08:00:00",
+      "enabled": true
+    }
+  }
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|!Foo
+### key is in construct["Foo"]
+PUT http://localhost:8089/node/store/es_foo_schema_ks HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": [{
+    "Foo": "third",
+    "Bar": "row",
+    "Baz": 321,
+    "Fobe": 1,
+    "Dt Test": "2018-10-07T00:00:00.000Z",
+    "enabled": true
+  }]
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|=Foo
+### no keys, ignore elasticsearch _id
+### store multiple rows
+PUT http://localhost:8089/node/store HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "smt": "es_foo_schema_pk",
+  "data": [{
+    "Foo": "eleventy",
+    "Bar": "row",
+    "Baz": 831,
+    "Fobe": 129,
+    "Dt Test": "2019-10-07T08:00:00",
+    "enabled": true
+  },{
+    "Foo": "twelvety",
+    "Bar": "row",
+    "Baz": 18,
+    "Fobe": 212,
+    "Dt Test": "2020-03-03T08:00:00",
+    "enabled": true
+  }]
+}
+
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+PUT http://localhost:8089/node/store/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": [{
+    "Foo": "first",
+    "Bar": "row",
+    "Baz": 13,
+    "Fobe": 1,
+    "Dt Test": "2018-10-07T00:00:00.000Z",
+    "enabled": true
+  }]
+}
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+### store multiple rows
+PUT http://localhost:8089/node/store/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": [{
+    "Foo": "eleventy",
+    "Bar": "row",
+    "Baz": 321,
+    "Fobe": 199,
+    "Dt Test": "2020-11-04T08:00:00",
+    "enabled": true
+  },{
+    "Foo": "twelvety",
+    "Bar": "row",
+    "Baz": 18,
+    "Fobe": 212,
+    "Dt Test": "2020-03-03T08:00:00",
+    "enabled": true
+  }]
+}

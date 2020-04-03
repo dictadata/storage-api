@@ -1,0 +1,66 @@
+### Install Visual Studio Code extension: REST Client  humao.rest-client
+
+### dullboy
+POST http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic dullboy dullboy
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "dullboy",
+    "password": "dullboy",
+    "roles": ["Public","User"]
+  }
+}
+
+### user:user
+POST http://localhost:8089/node/register HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "user",
+    "password": "user",
+    "roles": ["Public", "User", "ETL", "Editor", "Notify"]
+  }
+}
+
+### editor:editor - created by admin with Editor role
+POST http://localhost:8089/node/register HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "editor",
+    "password": "editor",
+    "roles": ["Public","User","Editor"]
+  }
+}
+
+### guest:guest - created by admin with Public role only
+POST http://localhost:8089/node/register HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "guest",
+    "password": "guest",
+    "roles": ["Public"]
+  }
+}
+
+### admin:admin
+POST http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "admin",
+    "password": "admin",
+    "roles": ["Public","User","Admin"]
+  }
+}

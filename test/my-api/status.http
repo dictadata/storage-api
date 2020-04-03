@@ -1,0 +1,18 @@
+### no user
+GET http://localhost:8089/my-api/status HTTP/1.1
+
+### invalid user (defaults to Public)
+GET http://localhost:8089/my-api/status HTTP/1.1
+Authorization: Basic Aladdin open_sesame
+
+### guest:guest Public
+GET http://localhost:8089/my-api/status HTTP/1.1
+Authorization: Basic guest guest
+
+### user:user User
+GET http://localhost:8089/my-api/status HTTP/1.1
+Authorization: Basic user user
+
+### admin:admin Admin
+GET http://localhost:8089/my-api/status HTTP/1.1
+Authorization: Basic admin admin

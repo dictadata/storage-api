@@ -1,0 +1,40 @@
+### elasticsearch|http://localhost:9200|foo_schema|first
+DELETE http://localhost:8089/node/dull/es_foo_schema_id HTTP/1.1
+Authorization: Basic user user
+
+### elasticsearch|http://localhost:9200|foo_schema|!Foo
+DELETE http://localhost:8089/node/dull/es_foo_schema_ks HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+    "key": "first"
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|=Foo
+DELETE http://localhost:8089/node/dull HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "smt": "es_foo_schema_pk",
+  "pattern": {
+    "match": {
+      "Foo": "first"
+    }
+  }
+}
+
+
+### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+DELETE http://localhost:8089/node/dull/mysql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "match": {
+      "Foo": "eleventy"
+    }
+  }
+}

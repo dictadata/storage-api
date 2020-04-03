@@ -1,0 +1,62 @@
+{
+  "model": "*",
+  "locus": "*",
+  "schema": "foo_schema",
+  "key": "*",
+  "fields": {
+    "Foo": {
+      "name": "Foo",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": false,
+      "isKey": true,
+      "label": "Foo"
+    },
+    "Bar": {
+      "name": "Bar",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Bar"
+    },
+    "Baz": {
+      "name": "Baz",
+      "type": "integer",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Baz"
+    },
+    "Fobe": {
+      "name": "Fobe",
+      "type": "float",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Fobe"
+    },
+    "Dt Test": {
+      "name": "Dt Test",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "Dt Test"
+    },
+    "enabled": {
+      "name": "enabled",
+      "type": "boolean",
+      "size": 0,
+      "default": null,
+      "isNullable": true,
+      "isKey": false,
+      "label": "enabled"
+    }
+  }
+}
