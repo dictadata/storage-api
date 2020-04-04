@@ -11,14 +11,14 @@ GET http://localhost:8089/node/login HTTP/1.1
 GET http://localhost:8089/node/login HTTP/1.1
 Authorization: Basic aladdin opensesame
 
-### admin:admin
-GET http://localhost:8089/node/account HTTP/1.1
-Authorization: Basic admin admin
+### guest:guest
+GET http://localhost:8089/node/login HTTP/1.1
+Authorization: Basic guest guest
 
 ### user:user
 GET http://localhost:8089/node/login HTTP/1.1
 Authorization: Basic user user
 
-### guest:guest
-GET http://localhost:8089/node/login HTTP/1.1
-Authorization: Basic guest guest
+### admin:admin
+GET http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic admin admin

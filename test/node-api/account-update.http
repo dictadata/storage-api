@@ -1,6 +1,5 @@
-### Install Visual Studio Code extension: REST Client  humao.rest-client
 
-### dullboy, updates settings but will not get Admin rights
+### dullboy, cannot modify own roles
 PUT http://localhost:8089/node/account HTTP/1.1
 Authorization: Basic dullboy dullboy
 Content-Type: application/json
@@ -9,7 +8,7 @@ Content-Type: application/json
   "account": {
     "userid": "dullboy",
     "password": "dullboy",
-    "roles": ["Public","User","Editor"],
+    "roles": ["Public","User","ETL"],
     "settings": {
       "homepage": "/home",
       "theme": "vue"
@@ -26,7 +25,7 @@ Content-Type: application/json
   "account": {
     "userid": "guest",
     "password": "guest",
-    "roles": ["Public","User"],
+    "roles": ["Public","User","Admin"],
     "settings": {
       "homepage": "/guest/myhomepage",
       "theme": "light"
@@ -51,7 +50,7 @@ Content-Type: application/json
   }
 }
 
-### user - changed by user
+### user - changed by user, cannot change own roles
 PUT http://localhost:8089/node/account HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
@@ -68,7 +67,7 @@ Content-Type: application/json
   }
 }
 
-### user - changed by admin
+### user - changed roles by admin
 PUT http://localhost:8089/node/account HTTP/1.1
 Authorization: Basic admin admin
 Content-Type: application/json
@@ -77,10 +76,30 @@ Content-Type: application/json
   "account": {
     "userid": "user",
     "password": "user",
-    "roles": ["Public","User","ETL", "Notify", "Editor"],
-    "settings": {
-      "homepage": "/home",
-      "theme": "dark"
-    }
+    "roles": ["Public","User","ETL"]
+  }
+}
+
+### admin - change password
+PUT http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "admin",
+    "password": "dictadata"
+  }
+}
+
+### admin - change it back
+PUT http://localhost:8089/node/account HTTP/1.1
+Authorization: Basic admin dictadata
+Content-Type: application/json
+
+{
+  "account": {
+    "userid": "admin",
+    "password": "admin"
   }
 }
