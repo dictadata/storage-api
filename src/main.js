@@ -14,8 +14,8 @@ const api_router = require('./my-api');
 config.routes["/" + config.realm] = api_router;
 
 // init docs storage at startup
-const docs_startup = require('./docs_startup');
-storagenode.startup.add(docs_startup.startup);
+const docs = require('./docs');
+storagenode.startup.add(docs.startup);
 
 // start server with config settings
 storagenode.start(config);
