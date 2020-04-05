@@ -1,17 +1,4 @@
 
-### editor - created by admin with Editor role
-POST http://localhost:8089/node/register HTTP/1.1
-Authorization: Basic admin admin
-Content-Type: application/json
-
-{
-  "account": {
-    "userid": "editor",
-    "password": "editor",
-    "roles": ["Public", "User", "Editor"]
-  }
-}
-
 ### user - update with Notify role
 PUT http://localhost:8089/node/account HTTP/1.1
 Authorization: Basic admin admin

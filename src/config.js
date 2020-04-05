@@ -56,13 +56,15 @@ var config = {
   // default Passport.js authentication strategy
   auth_strategy: 'basic', // 'local', 'basic', 'digest'
 
-  // use base node route handlers
-  node: {
+  // use node route handlers
+  "node-api": {
     useStorage: true,
-    useClientStream: false,
     useTransfer: true,
-    useTransport: false
+    useClientStream: false,  // not fully implemented
+    useTransport: false   // not fully implemented
   },
+
+
 
   // fileio max upload size
   maxFileSize: 200 * 1024 * 1024, // 200MB
