@@ -1,3 +1,8 @@
+- version 1.1.1
+  - improve docs startup
+  - add tests
+  - updated dependency to @dictadata/storage-junctions v1.1.2
+  - updated dependency to @dictadata/storage-node v1.1.1
 - version 1.1.0
   - code changes related to library updates and testing
   - updated dependency to @dictadata/storage-junctions v1.1.2
