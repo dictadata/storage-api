@@ -59,8 +59,9 @@ var config = {
   // use base node route handlers
   node: {
     useStorage: true,
+    useClientStream: false,
     useTransfer: true,
-    useFileio: true
+    useTransport: false
   },
 
   // fileio max upload size
@@ -112,27 +113,23 @@ if (process.env.NODE_ENV === 'development') {
   };
 
   // data storage for tests
-  config.smt["csv_foofile"] = "csv|./test/data/|foofile.csv|*";
-
-  config.smt.es_foo_schema    = "elasticsearch|http://localhost:9200|foo_schema|!";
+  config.smt.es_foo_schema    = "elasticsearch|http://localhost:9200|foo_schema|*";
   config.smt.es_foo_schema_ks = "elasticsearch|http://localhost:9200|foo_schema|!Foo";
   config.smt.es_foo_schema_pk = "elasticsearch|http://localhost:9200|foo_schema|=Foo";
   config.smt.es_foo_schema_id = "elasticsearch|http://localhost:9200|foo_schema|first";
 
-  config.smt.es_foo_transfer   = "elasticsearch|http://localhost:9200|foo_transfer|=Foo";
-  config.smt.es_foo_transfer_2 = "elasticsearch|http://localhost:9200|foo_transfer_2|=Foo";
-  config.smt.es_foo_transfer_3 = "elasticsearch|http://localhost:9200|foo_transfer_3|=Foo";
+  config.smt.es_foo_transfer  = "elasticsearch|http://localhost:9200|foo_transfer|=Foo";
+  config.smt.es_foo_transform = "elasticsearch|http://localhost:9200|foo_transform|=Foo";
 
   config.smt.mysql_foo_schema    = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|*";
   config.smt.mysql_foo_schema_pk = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo";
 
   config.smt.mysql_foo_transfer  = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_transfer|=Foo";
-  config.smt.mysql_foo_transfer_2  = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_transfer_2|=Foo";
-  config.smt.mysql_foo_transfer_3  = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_transfer_3|=Foo";
+  config.smt.mysql_foo_transform = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_transform|=Foo";
 
   config.smt["rest_weather_forecast"] = "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*";
-  config.smt["mysql_rest_forecast"] = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|rest_forecast|=*";
-
+  config.smt["es_weather_forecast"] = "elasticsearch|http://localhost:9200|weather_forecast|=*";
+  config.smt["mysql_weather_forecast"] = "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|weather_forecast|=*";
 }
 
 module.exports = config;

@@ -1,47 +1,87 @@
-### transfer test
-GET http://localhost:8089/node/transfer/test HTTP/1.1
-Authorization: Basic admin admin
-
-### transfer
+### transfer foofile.json > elasticsearch
 POST http://localhost:8089/node/transfer HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
 {
   "source": {
-    "smt": "csv_foofile",
+    "SMT": "json_foofile",
     "options": {}
   },
   "destination": {
-    "smt": "mysql_foo_schema_pk",
+    "SMT": "es_foo_schema_pk",
     "options": {}
   }
 }
 
-### transfer
+### transfer foofile.csv > mysql
 POST http://localhost:8089/node/transfer HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
 {
   "source": {
-    "smt": "mysql_foo_schema_pk",
+    "SMT": "csv_foofile",
     "options": {}
   },
   "destination": {
-    "smt": "es_foo_transfer_2",
+    "SMT": "mysql_foo_schema_pk",
     "options": {}
   }
 }
 
-### weather
+### transfer mysql > elasticsearch
 POST http://localhost:8089/node/transfer HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
 {
   "source": {
-    "smt": "rest_weather_forecast",
+    "SMT": "mysql_foo_schema_pk",
+    "options": {}
+  },
+  "destination": {
+    "SMT": "es_foo_transfer",
+    "options": {}
+  }
+}
+
+### transfer elasticsearch > mysql
+POST http://localhost:8089/node/transfer HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "source": {
+    "SMT": "es_foo_schema_pk",
+    "options": {}
+  },
+  "destination": {
+    "SMT": "mysql_foo_transfer",
+    "options": {}
+  },
+  "transforms": {
+    "fields": {
+      "mapping": {
+        "Foo": "Foo",
+        "Bar": "Bar",
+        "Baz": "Baz",
+        "Fobe": "Fobe",
+        "Dt Test": "Dt Test",
+        "enabled": "enabled"
+      }
+    }
+  }
+}
+
+### REST weather > elasticsearch
+POST http://localhost:8089/node/transfer HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "source": {
+    "SMT": "rest_weather_forecast",
     "options": {
         "headers": {
           "Accept": "application/ld+json",
@@ -56,7 +96,34 @@ Content-Type: application/json
     }
   },
   "destination": {
-    "smt": "mysql_rest_forecast",
+    "SMT": "es_weather_forecast",
+    "options": {}
+  }
+}
+
+### REST weather > mysql
+POST http://localhost:8089/node/transfer HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "source": {
+    "SMT": "rest_weather_forecast",
+    "options": {
+        "headers": {
+          "Accept": "application/ld+json",
+          "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+        },
+        "reader": {
+          "extract": {
+            "encoding": "",
+            "data": "periods"
+          }
+        }
+    }
+  },
+  "destination": {
+    "SMT": "mysql_weather_forecast",
     "options": {}
   }
 }

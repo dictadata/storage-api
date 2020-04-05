@@ -5,11 +5,11 @@ Content-Type: application/json
 
 {
   "source": {
-    "smt": "mysql_foo_schema_pk",
+    "SMT": "mysql_foo_schema_pk",
     "options": {}
   },
   "destination": {
-    "smt": "es_foo_transfer_3",
+    "SMT": "es_foo_transform",
     "options": {}
   },
   "transforms": {
@@ -41,11 +41,11 @@ Content-Type: application/json
 
 {
   "source": {
-    "smt": "es_foo_transfer_3",
+    "SMT": "es_foo_schema_pk",
     "options": {}
   },
   "destination": {
-    "smt": "mysql_foo_transfer_3",
+    "SMT": "mysql_foo_transform",
     "options": {}
   },
   "transforms": {

@@ -8,16 +8,17 @@ Authorization: Basic admin admin
 Content-Type: application/json
 
 {
-  "smt": "es_foo_schema_pk"
+  "SMT": "es_foo_schema_pk"
 }
 
 ### elasticsearch|http://localhost:9200|node_storage|=Foo
+### accounts is a development only SMT
 GET http://localhost:8089/node/encoding HTTP/1.1
 Authorization: Basic admin admin
 Content-Type: application/json
 
 {
-  "smt": "accounts"
+  "SMT": "accounts"
 }
 
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo

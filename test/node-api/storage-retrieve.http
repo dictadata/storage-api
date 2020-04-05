@@ -18,7 +18,7 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "smt": "es_foo_schema_ks",
+  "SMT": "es_foo_schema_ks",
   "pattern": {
     "match": {
       "Foo": "first"

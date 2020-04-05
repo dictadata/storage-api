@@ -21,7 +21,7 @@ Content-Type: application/json
   "account": {
     "userid": "user",
     "password": "user",
-    "roles": ["Public","User","ETL","Notify"],
+    "roles": ["Public","User","ETL","Editor","Notify"],
     "settings": {
       "homepage": "/home",
       "theme": "dark"

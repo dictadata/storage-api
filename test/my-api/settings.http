@@ -7,7 +7,7 @@ Content-Type: application/json
   "settings": {
     "category": "music",
     "genre": "rock-n-roll",
-    "favorites": ["The Beatles", "The Rolling Stones"]
+    "favorites": ["The Beatles", "The Rolling Stones", "The Hollies"]
   }
 }
 

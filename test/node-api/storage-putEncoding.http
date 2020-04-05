@@ -4,12 +4,6 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "smt": {
-    "model": "elasticsearch",
-    "locus": "http://localhost:9200",
-    "schema": "foo_schema",
-    "key": "=Foo"
-  },
   "fields": {
     "Foo": {
       "name": "Foo",
@@ -74,7 +68,7 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "smt": "es_foo_schema_pk",
+  "SMT": "es_foo_schema_pk",
   "fields": {
     "Foo": {
       "name": "Foo",
@@ -139,10 +133,6 @@ Authorization: Basic admin admin
 Content-Type: application/json
 
 {
-  "model": "*",
-  "locus": "*",
-  "schema": "storage_node",
-  "key": "*",
   "fields": {
     "Foo": {
       "name": "Foo",
@@ -202,15 +192,12 @@ Content-Type: application/json
 }
 
 ### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_transfer2|=Foo
-PUT http://localhost:8089/node/encoding/mysql_foo_schema_pk HTTP/1.1
+PUT http://localhost:8089/node/encoding HTTP/1.1
 Authorization: Basic admin admin
 Content-Type: application/json
 
 {
-  "model": "*",
-  "locus": "*",
-  "schema": "storage_node",
-  "key": "*",
+  "SMT": "mysql_foo_schema_pk",
   "fields": {
     "Foo": {
       "name": "Foo",

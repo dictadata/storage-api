@@ -1,5 +1,3 @@
-### Install Visual Studio Code extension: REST Client  humao.rest-client
-
 ### dullboy
 GET http://localhost:8089/node/login HTTP/1.1
 Authorization: Basic dullboy dullboy
@@ -11,14 +9,14 @@ GET http://localhost:8089/node/login HTTP/1.1
 GET http://localhost:8089/node/login HTTP/1.1
 Authorization: Basic aladdin opensesame
 
-### guest:guest
+### guest
 GET http://localhost:8089/node/login HTTP/1.1
 Authorization: Basic guest guest
 
-### user:user
+### user
 GET http://localhost:8089/node/login HTTP/1.1
 Authorization: Basic user user
 
-### admin:admin
+### admin
 GET http://localhost:8089/node/account HTTP/1.1
 Authorization: Basic admin admin

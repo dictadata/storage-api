@@ -1,18 +1,18 @@
 ### no Authorization header: unauthorized
 GET http://localhost:8089/node/status HTTP/1.1
 
-### unknown Authorization: defaults to Public
+### unregistered  Public
 GET http://localhost:8089/node/status HTTP/1.1
 Authorization: Basic Aladdin opensesame
 
-### guest:guest  Public
+### guest  Public
 GET http://localhost:8089/node/status HTTP/1.1
 Authorization: Basic guest guest
 
-### user:user User
+### user  User
 GET http://localhost:8089/node/status HTTP/1.1
 Authorization: Basic user user
 
-### admin:admin  Admin
+### admin  Admin
 GET http://localhost:8089/node/status HTTP/1.1
 Authorization: Basic admin admin
