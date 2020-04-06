@@ -1,6 +1,6 @@
 {
   "name": "@dictadata/storage-api",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "REST API server that extends from @dictadata/storage-node.",
   "author": "Drew O. Letcher",
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@dictadata/storage-junctions": "^1.1.5",
-    "@dictadata/storage-node": "^1.1.5",
+    "@dictadata/storage-node": "^1.1.7",
     "express": "^4.17.1",
     "formidable": "^1.2.2",
     "nodemailer": "^6.4.6"

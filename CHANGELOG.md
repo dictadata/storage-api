@@ -1,3 +1,5 @@
+- version 1.1.4
+  - NODE_ENV and console logging changes
 - version 1.1.3
   - load xlsx as local package
 - version 1.1.2
