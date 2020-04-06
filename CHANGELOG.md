@@ -1,3 +1,5 @@
+- version 1.1.2
+  - logger configuration changes
 - version 1.1.1
   - improve docs startup
   - add tests
