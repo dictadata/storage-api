@@ -12,7 +12,7 @@ var config = {
   realm: 'my-api',
 
   // path to log files
-  logPath: path.join('/var/log/my-api'),
+  logPath: path.join('/var/log/storage-node'),
   logPrefix: 'my-api',
   logLevel: 'info',
 

@@ -13,9 +13,7 @@
         "run-script",
         "debug"
       ],
-      "env": {
-        "LOG_LEVEL": "verbose"
-      },
+      "envFile": "${workspaceFolder}/.env.development",
       "port": 9229,
       "outputCapture": "std"
     },
@@ -28,13 +26,24 @@
         "--preserve-symlinks",
         "--inspect-brk"
       ],
-      "env": {
-        "DEBUG": "express:*"
-      },
+      "envFile": "${workspaceFolder}/.env.development",
       "program": "${workspaceFolder}/src/main.js",
       "restart": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "run prod",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "debug"
+      ],
+      "envFile": "${workspaceFolder}/.env.production",
+      "port": 9229,
+      "outputCapture": "std"
     }
   ]
 }

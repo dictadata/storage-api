@@ -13,8 +13,8 @@ const path = require('path');
  * Wait until server config is updated before initializing.
  */
 exports.startup = async (config) => {
-  logger.verbose("docs startup");
-  logger.info("docs SMT: " + JSON.stringify(config.smt.$_docs));
+  logger.info("docs startup");
+  logger.verbose("docs SMT: " + JSON.stringify(config.smt.$_docs));
 
   var junction;
   try {
