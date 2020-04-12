@@ -61,8 +61,8 @@ Content-Type: application/json
     "options": {}
   },
   "transforms": {
-    "fields": {
-      "mapping": {
+    "select": {
+      "fields": {
         "Foo": "Foo",
         "Bar": "Bar",
         "Baz": "Baz",

@@ -21,11 +21,11 @@ Content-Type: application/json
         "Baz": { "eq": 456 }
       }
     },
-    "fields": {
+    "select": {
       "inject_before": {
         "Fie": "where's es fum?"
       },
-      "mapping": {
+      "fields": {
         "Foo": "Foo",
         "Bar": "Bar",
         "Baz": "Bazzy"
@@ -57,11 +57,11 @@ Content-Type: application/json
         "Baz": { "eq": 456 }
       }
     },
-    "fields": {
+    "select": {
       "inject_after": {
         "Fie": "where's my fum?"
       },
-      "mapping": {
+      "fields": {
         "Foo": "Foo",
         "Bar": "Bar",
         "Bazzy": "Bazzy"

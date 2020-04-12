@@ -7,8 +7,8 @@
       "Baz": { "gt": 400, "lt": 500 }
     }
   },
-  "fields": {
-    "mapping": {
+  "select": {
+    "fields": {
       "Foo": "foo",
       "Bar": "bar",
       "Baz": "baz",
