@@ -2,13 +2,22 @@
 GET http://localhost:8089/node/recall/es_foo_schema_id HTTP/1.1
 Authorization: Basic admin admin
 
-### elasticsearch|http://localhost:9200|foo_schema|!Foo
+### elasticsearch|http://localhost:9200|foo_schema|!
 GET http://localhost:8089/node/recall/es_foo_schema_ks HTTP/1.1
 Authorization: Basic admin admin
 Content-Type: application/json
 
 {
-  "key": "first"
+  "key": "twenty"
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|!Foo
+GET http://localhost:8089/node/recall/es_foo_schema_kf HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "Foo": "ten"
 }
 
 ### elasticsearch|http://localhost:9200|foo_schema|=Foo
@@ -20,7 +29,7 @@ Content-Type: application/json
   "SMT": "es_foo_schema_pk",
   "pattern": {
     "match": {
-      "Foo": "first"
+      "Foo": "twenty"
     }
   }
 }
@@ -33,7 +42,7 @@ Content-Type: application/json
 {
   "pattern": {
     "match": {
-      "Foo": "first"
+      "Foo": "twenty"
     }
   }
 }

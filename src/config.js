@@ -115,10 +115,14 @@ if (process.env.NODE_ENV === 'development') {
   };
 
   // data storage for tests
+  config.smt["csv_foofile"] = "csv|./test/data/|foofile.csv|*";
+  config.smt["json_foofile"] = "json|./test/data/|foofile.json|*";
+
   config.smt.es_foo_schema    = "elasticsearch|http://localhost:9200|foo_schema|*";
-  config.smt.es_foo_schema_ks = "elasticsearch|http://localhost:9200|foo_schema|!Foo";
+  config.smt.es_foo_schema_ks = "elasticsearch|http://localhost:9200|foo_schema|!";
+  config.smt.es_foo_schema_kf = "elasticsearch|http://localhost:9200|foo_schema|!Foo";
   config.smt.es_foo_schema_pk = "elasticsearch|http://localhost:9200|foo_schema|=Foo";
-  config.smt.es_foo_schema_id = "elasticsearch|http://localhost:9200|foo_schema|first";
+  config.smt.es_foo_schema_id = "elasticsearch|http://localhost:9200|foo_schema|twenty";
 
   config.smt.es_foo_transfer  = "elasticsearch|http://localhost:9200|foo_transfer|=Foo";
   config.smt.es_foo_transform = "elasticsearch|http://localhost:9200|foo_transform|=Foo";

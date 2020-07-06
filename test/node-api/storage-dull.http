@@ -2,13 +2,22 @@
 DELETE http://localhost:8089/node/dull/es_foo_schema_id HTTP/1.1
 Authorization: Basic user user
 
-### elasticsearch|http://localhost:9200|foo_schema|!Foo
+### elasticsearch|http://localhost:9200|foo_schema|!
 DELETE http://localhost:8089/node/dull/es_foo_schema_ks HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
 {
-    "key": "first"
+    "key": "twenty"
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|!Foo
+DELETE http://localhost:8089/node/dull/es_foo_schema_kf HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+    "foo": "ten"
 }
 
 ### elasticsearch|http://localhost:9200|foo_schema|=Foo
@@ -20,7 +29,7 @@ Content-Type: application/json
   "SMT": "es_foo_schema_pk",
   "pattern": {
     "match": {
-      "Foo": "first"
+      "Foo": "twenty"
     }
   }
 }

@@ -1,59 +1,59 @@
 ### elasticsearch|http://localhost:9200|foo_schema|!
-### if data list then elasticsource generates the key
-PUT http://localhost:8089/node/store/es_foo_schema HTTP/1.1
-Authorization: Basic user user
-Content-Type: application/json
-
-{
-  "data": [{
-    "Foo": "first",
-    "Bar": "row",
-    "Baz": 831,
-    "Fobe": 129,
-    "Dt Test": "2019-10-07T08:00:00",
-    "enabled": true
-  }]
-}
-
-### elasticsearch|http://localhost:9200|foo_schema|!
-### if dictionary object then app provides the key
-PUT http://localhost:8089/node/store/es_foo_schema HTTP/1.1
-Authorization: Basic user user
-Content-Type: application/json
-
-{
-  "data": {
-    "first": {
-      "Foo": "first",
-      "Bar": "row",
-      "Baz": 831,
-      "Fobe": 129,
-      "Dt Test": "2019-10-07T08:00:00",
-      "enabled": true
-    }
-  }
-}
-
-### elasticsearch|http://localhost:9200|foo_schema|!Foo
-### key is in construct["Foo"]
+### if array list then elasticsearch generates the key
 PUT http://localhost:8089/node/store/es_foo_schema_ks HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
 
 {
   "data": [{
-    "Foo": "third",
+    "Foo": "one",
     "Bar": "row",
-    "Baz": 321,
-    "Fobe": 1,
+    "Baz": 1,
+    "Fobe": 1.1,
+    "Dt Test": "2020-01-01T08:00:00",
+    "enabled": true
+  }]
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|!
+### if dictionary object then property names are the keys
+PUT http://localhost:8089/node/store/es_foo_schema_ks HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": {
+    "twenty": {
+      "Foo": "twenty",
+      "Bar": "row",
+      "Baz": 20,
+      "Fobe": 20.20,
+      "Dt Test": "2020-10-07T08:00:00",
+      "enabled": true
+    }
+  }
+}
+
+### elasticsearch|http://localhost:9200|foo_schema|!Foo
+### defined key is in construct["Foo"]
+PUT http://localhost:8089/node/store/es_foo_schema_kf HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": [{
+    "Foo": "ten",
+    "Bar": "row",
+    "Baz": 10,
+    "Fobe": 10.10,
     "Dt Test": "2018-10-07T00:00:00.000Z",
     "enabled": true
   }]
 }
 
 ### elasticsearch|http://localhost:9200|foo_schema|=Foo
-### no keys, ignore elasticsearch _id
-### store multiple rows
+### doc store
+### storing multiple rows
 PUT http://localhost:8089/node/store HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
@@ -63,16 +63,16 @@ Content-Type: application/json
   "data": [{
     "Foo": "eleventy",
     "Bar": "row",
-    "Baz": 831,
-    "Fobe": 129,
-    "Dt Test": "2019-10-07T08:00:00",
+    "Baz": 11,
+    "Fobe": 11.11,
+    "Dt Test": "2011-10-07T08:00:00",
     "enabled": true
   },{
     "Foo": "twelvety",
     "Bar": "row",
-    "Baz": 18,
-    "Fobe": 212,
-    "Dt Test": "2020-03-03T08:00:00",
+    "Baz": 12,
+    "Fobe": 12.12,
+    "Dt Test": "2012-03-03T08:00:00",
     "enabled": true
   }]
 }
@@ -85,11 +85,11 @@ Content-Type: application/json
 
 {
   "data": [{
-    "Foo": "first",
+    "Foo": "twenty",
     "Bar": "row",
-    "Baz": 13,
-    "Fobe": 1,
-    "Dt Test": "2018-10-07T00:00:00.000Z",
+    "Baz": 20,
+    "Fobe": 20.20,
+    "Dt Test": "2020-10-07T00:00:00.000Z",
     "enabled": true
   }]
 }
@@ -104,16 +104,16 @@ Content-Type: application/json
   "data": [{
     "Foo": "eleventy",
     "Bar": "row",
-    "Baz": 321,
-    "Fobe": 199,
+    "Baz": 11,
+    "Fobe": 11.11,
     "Dt Test": "2020-11-04T08:00:00",
     "enabled": true
   },{
     "Foo": "twelvety",
     "Bar": "row",
-    "Baz": 18,
-    "Fobe": 212,
-    "Dt Test": "2020-03-03T08:00:00",
+    "Baz": 12,
+    "Fobe": 12.12,
+    "Dt Test": "2020-12-03T08:00:00",
     "enabled": true
   }]
 }

@@ -21,7 +21,7 @@ Content-Type: application/json
   "SMT": "es_foo_schema_ks",
   "pattern": {
     "match": {
-      "Foo": "first"
+      "Foo": "twenty"
     }
   }
 }
@@ -61,7 +61,7 @@ Content-Type: application/json
 {
   "pattern": {
     "match": {
-      "Foo": "first"
+      "Foo": "twenty"
     }
   }
 }

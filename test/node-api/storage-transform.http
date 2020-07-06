@@ -4,11 +4,11 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "source": {
+  "origin": {
     "SMT": "mysql_foo_schema_pk",
     "options": {}
   },
-  "destination": {
+  "terminal": {
     "SMT": "es_foo_transform",
     "options": {}
   },
@@ -40,11 +40,11 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "source": {
+  "origin": {
     "SMT": "es_foo_schema_pk",
     "options": {}
   },
-  "destination": {
+  "terminal": {
     "SMT": "mysql_foo_transform",
     "options": {}
   },

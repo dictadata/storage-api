@@ -4,13 +4,15 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "source": {
-    "SMT": "json_foofile",
-    "options": {}
-  },
-  "destination": {
-    "SMT": "es_foo_schema_pk",
-    "options": {}
+  "tract": {
+    "origin": {
+      "SMT": "json_foofile",
+      "options": {}
+    },
+    "terminal": {
+      "SMT": "es_foo_schema_pk",
+      "options": {}
+    }
   }
 }
 
@@ -20,11 +22,11 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "source": {
+  "origin": {
     "SMT": "csv_foofile",
     "options": {}
   },
-  "destination": {
+  "terminal": {
     "SMT": "mysql_foo_schema_pk",
     "options": {}
   }
@@ -36,11 +38,11 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "source": {
+  "origin": {
     "SMT": "mysql_foo_schema_pk",
     "options": {}
   },
-  "destination": {
+  "terminal": {
     "SMT": "es_foo_transfer",
     "options": {}
   }
@@ -52,11 +54,11 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "source": {
+  "origin": {
     "SMT": "es_foo_schema_pk",
     "options": {}
   },
-  "destination": {
+  "terminal": {
     "SMT": "mysql_foo_transfer",
     "options": {}
   },
@@ -80,7 +82,7 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "source": {
+  "origin": {
     "SMT": "rest_weather_forecast",
     "options": {
         "headers": {
@@ -95,7 +97,7 @@ Content-Type: application/json
         }
     }
   },
-  "destination": {
+  "terminal": {
     "SMT": "es_weather_forecast",
     "options": {}
   }
@@ -107,7 +109,7 @@ Authorization: Basic user user
 Content-Type: application/json
 
 {
-  "source": {
+  "origin": {
     "SMT": "rest_weather_forecast",
     "options": {
         "headers": {
@@ -122,7 +124,7 @@ Content-Type: application/json
         }
     }
   },
-  "destination": {
+  "terminal": {
     "SMT": "mysql_weather_forecast",
     "options": {}
   }
