@@ -1,3 +1,8 @@
+- version 1.1.8
+  - update dependencies
+- version 1.1.5
+  - updated to @dictadata/storage-junctions v1.1.7
+  - updated to @dictadata/storage-node v1.1.9
 - version 1.1.4
   - NODE_ENV and console logging changes
 - version 1.1.3
