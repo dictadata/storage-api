@@ -1,0 +1,3 @@
+### editor
+GET http://localhost:8089/node/login HTTP/1.1
+Authorization: Basic editor editor
