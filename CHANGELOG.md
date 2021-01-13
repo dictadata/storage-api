@@ -1,3 +1,7 @@
+# CHANGELOG for @dictadata/storage-api
+
+- version 1.2.1
+  - add project name and version to /status request
 - version 1.2.0
   - update dependency to @dictadata/storage-junctions 1.2.6
   - update dependency to @dictadata/storage-node 1.2.0
