@@ -127,7 +127,7 @@ Content-Type: application/json
   }
 }
 
-### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+### mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|=Foo
 PUT http://localhost:8089/node/encoding/mysql_foo_schema_pk HTTP/1.1
 Authorization: Basic admin admin
 Content-Type: application/json
@@ -191,7 +191,7 @@ Content-Type: application/json
   }
 }
 
-### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_transfer2|=Foo
+### mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_transfer2|=Foo
 PUT http://localhost:8089/node/encoding HTTP/1.1
 Authorization: Basic admin admin
 Content-Type: application/json

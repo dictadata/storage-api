@@ -78,7 +78,7 @@ Content-Type: application/json
 }
 
 
-### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+### mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|=Foo
 PUT http://localhost:8089/node/store/mysql_foo_schema_pk HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
@@ -94,7 +94,7 @@ Content-Type: application/json
   }]
 }
 
-### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+### mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|=Foo
 ### store multiple rows
 PUT http://localhost:8089/node/store/mysql_foo_schema_pk HTTP/1.1
 Authorization: Basic user user

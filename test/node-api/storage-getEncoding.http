@@ -21,6 +21,6 @@ Content-Type: application/json
   "SMT": "accounts"
 }
 
-### mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|=Foo
+### mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|=Foo
 GET http://localhost:8089/node/encoding/mysql_foo_schema_pk HTTP/1.1
 Authorization: Basic admin admin
