@@ -5,44 +5,33 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "run debug",
       "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script",
-        "debug"
-      ],
+      "runtimeArgs": ["run-script", "debug"],
       "envFile": "${workspaceFolder}/.env.development",
-      "port": 9229,
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "nodemon",
       "runtimeExecutable": "nodemon",
-      "runtimeArgs": [
-        "--preserve-symlinks",
-        "--inspect-brk"
-      ],
+      "runtimeArgs": ["--preserve-symlinks", "--inspect-brk"],
       "envFile": "${workspaceFolder}/.env.development",
-      "program": "${workspaceFolder}/src/main.js",
+      "program": "${workspaceFolder}/lib/main.js",
       "restart": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "run prod",
       "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script",
-        "debug"
-      ],
+      "runtimeArgs": ["run-script", "debug"],
       "envFile": "${workspaceFolder}/.env.production",
-      "port": 9229,
       "outputCapture": "std"
     }
   ]

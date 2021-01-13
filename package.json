@@ -1,30 +1,29 @@
 {
   "name": "@dictadata/storage-api",
-  "version": "1.1.8",
+  "version": "1.2.0",
   "description": "REST API server that extends from @dictadata/storage-node.",
   "author": "Drew O. Letcher",
   "license": "MIT",
-  "main": "src/main.js",
+  "main": "lib/main.js",
   "repository": "github:dictadata/storage-api",
   "scripts": {
-    "debug": "node --inspect-brk --preserve-symlinks src/main.js",
-    "lint": "eslint src/**/*.js",
-    "lint-fix": "eslint --fix src/**/*.js",
+    "debug": "node --inspect --preserve-symlinks lib/main.js",
+    "lint": "eslint lib/**/*.js",
+    "lint-fix": "eslint --fix lib/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": ">=15.0.1"
+  },
   "dependencies": {
-    "@dictadata/storage-junctions": "^1.1.8",
-    "@dictadata/storage-node": "^1.1.8",
+    "@dictadata/storage-junctions": "^1.2.6",
+    "@dictadata/storage-node": "^1.2.0",
     "express": "^4.17.1",
     "formidable": "^1.2.2",
-    "nodemailer": "^6.4.10"
+    "nodemailer": "^6.4.17"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1"
-  },
-  "engines": {
-    "node": ">=12.0.0"
   }
 }

@@ -1,4 +1,4 @@
-# @dictadata/storage-api
+# @dictadata/storage-api 1.2.0
 
 Example implementation of REST API services using @dictadata/storage-node and @dictadata/storage-junctions projects.
 
@@ -6,7 +6,7 @@ Example implementation of REST API services using @dictadata/storage-node and @d
 
 * Clone and rename the project.
 * Edit the config.js file for your system.
-* Add your route handlers under ${workspaceFolder}/src/api.
+* Add your route handlers under ${workspaceFolder}/lib/my-api.
 
 ---
 
