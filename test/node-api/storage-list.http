@@ -17,6 +17,25 @@ Content-Type: application/json
 }
 
 
+### mssql junction.smt.schema
+POST http://localhost:8089/node/list/mssql_foo_schema_pk HTTP/1.1
+Authorization: Basic admin admin
+
+### mssql *
+POST http://localhost:8089/node/list/mssql_foo_schema_pk?schema=* HTTP/1.1
+Authorization: Basic admin admin
+
+### mssql foo*
+POST http://localhost:8089/node/list HTTP/1.1
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "SMT": "mssql_foo_schema_pk",
+  "schema": "foo*"
+}
+
+
 ### mysql junction.smt.schema
 POST http://localhost:8089/node/list/mysql_foo_schema_pk HTTP/1.1
 Authorization: Basic admin admin

@@ -24,7 +24,9 @@ Content-Type: application/json
 {
   "origin": {
     "SMT": "csv_foofile",
-    "options": {}
+    "options": {
+      "csvHeader": true
+    }
   },
   "terminal": {
     "SMT": "mysql_foo_schema_pk",
@@ -99,6 +101,33 @@ Content-Type: application/json
   },
   "terminal": {
     "SMT": "es_weather_forecast",
+    "options": {}
+  }
+}
+
+### REST weather > mssql
+POST http://localhost:8089/node/transfer HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "origin": {
+    "SMT": "rest_weather_forecast",
+    "options": {
+        "headers": {
+          "Accept": "application/ld+json",
+          "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+        },
+        "reader": {
+          "extract": {
+            "encoding": "",
+            "data": "periods"
+          }
+        }
+    }
+  },
+  "terminal": {
+    "SMT": "mssql_weather_forecast",
     "options": {}
   }
 }

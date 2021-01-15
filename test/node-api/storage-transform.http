@@ -45,6 +45,42 @@ Content-Type: application/json
     "options": {}
   },
   "terminal": {
+    "SMT": "mssql_foo_transform",
+    "options": {}
+  },
+  "transforms": {
+    "filter": {
+      "match": {
+        "Bar": "row"
+      },
+      "drop": {
+        "Baz": { "eq": 456 }
+      }
+    },
+    "select": {
+      "inject_after": {
+        "Fie": "where's my fum?"
+      },
+      "fields": {
+        "Foo": "Foo",
+        "Bar": "Bar",
+        "Bazzy": "Bazzy"
+      }
+    }
+  }
+}
+
+### transfer with transforms
+POST http://localhost:8089/node/transfer HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "origin": {
+    "SMT": "es_foo_schema_pk",
+    "options": {}
+  },
+  "terminal": {
     "SMT": "mysql_foo_transform",
     "options": {}
   },

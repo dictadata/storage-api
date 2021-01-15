@@ -45,6 +45,46 @@ Content-Type: application/json
 }
 
 
+### mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_schema|=Foo
+POST http://localhost:8089/node/retrieve/mssql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+}
+
+### mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_schema|=Foo
+POST http://localhost:8089/node/retrieve/mssql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "match": {
+      "Foo": "twenty"
+    }
+  }
+}
+
+### mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_schema|=Foo
+POST http://localhost:8089/node/retrieve/mssql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "pattern": {
+    "match": {
+      "Bar": "row",
+      "Baz": { "gte": 10, "lte": 500 }
+    },
+    "cues": {
+      "count": 3,
+      "order": {"Dt Test": "desc"}
+    }
+  }
+}
+
+
 ### mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|=Foo
 POST http://localhost:8089/node/retrieve/mysql_foo_schema_pk HTTP/1.1
 Authorization: Basic user user

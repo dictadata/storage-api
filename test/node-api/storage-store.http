@@ -78,6 +78,47 @@ Content-Type: application/json
 }
 
 
+### mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_schema|=Foo
+PUT http://localhost:8089/node/store/mssql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": [{
+    "Foo": "twenty",
+    "Bar": "row",
+    "Baz": 20,
+    "Fobe": 20.20,
+    "Dt Test": "2020-10-07T00:00:00.000Z",
+    "enabled": true
+  }]
+}
+
+### mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_schema|=Foo
+### store multiple rows
+PUT http://localhost:8089/node/store/mssql_foo_schema_pk HTTP/1.1
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "data": [{
+    "Foo": "eleventy",
+    "Bar": "row",
+    "Baz": 11,
+    "Fobe": 11.11,
+    "Dt Test": "2020-11-04T08:00:00",
+    "enabled": true
+  },{
+    "Foo": "twelvety",
+    "Bar": "row",
+    "Baz": 12,
+    "Fobe": 12.12,
+    "Dt Test": "2020-12-03T08:00:00",
+    "enabled": true
+  }]
+}
+
+
 ### mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|=Foo
 PUT http://localhost:8089/node/store/mysql_foo_schema_pk HTTP/1.1
 Authorization: Basic user user
