@@ -1,8 +1,8 @@
-### elasticsearch|http://localhost:9200|node_storage|=Foo
+### elasticsearch|http://localhost:9200|storage_node|=Foo
 GET http://localhost:8089/node/encoding/es_foo_schema_pk HTTP/1.1
 Authorization: Basic admin admin
 
-### elasticsearch|http://localhost:9200|node_storage|=Foo
+### elasticsearch|http://localhost:9200|storage_node|=Foo
 GET http://localhost:8089/node/encoding HTTP/1.1
 Authorization: Basic admin admin
 Content-Type: application/json
@@ -11,7 +11,7 @@ Content-Type: application/json
   "SMT": "es_foo_schema_pk"
 }
 
-### elasticsearch|http://localhost:9200|node_storage|=Foo
+### elasticsearch|http://localhost:9200|storage_node|=Foo
 ### accounts is a development only SMT
 GET http://localhost:8089/node/encoding HTTP/1.1
 Authorization: Basic admin admin
