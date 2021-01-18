@@ -1,0 +1,24 @@
+{
+  "smt": {
+    "model": "*",
+    "location": "*",
+    "schema": "api_settings",
+    "key": "=key"
+  },
+  "fields": {
+    "key": {
+      "type": "keyword",
+      "size": 1024,
+      "default": null,
+      "isNullable": false,
+      "isKey": true
+    },
+    "value": {
+      "type": "text",
+      "size": -1,
+      "default": null,
+      "isNullable": true,
+      "isKey": false
+    }
+  }
+}

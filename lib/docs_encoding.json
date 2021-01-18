@@ -14,17 +14,10 @@
       "isKey": true
     },
     "compilation": {
-      "type": "array",
-      "default": [],
-      "isNullable": true,
-      "fields": {
-        "section": {
-          "type": "keyword",
-          "size": 64,
-          "default": "x",
-          "isNullable": false
-        }
-      }
+      "type": "keyword",
+      "size": 64,
+      "default": "x",
+      "isNullable": false
     },
     "title": {
       "type": "text",
@@ -34,17 +27,10 @@
       "isKey": false
     },
     "context": {
-      "type": "array",
-      "default": [],
-      "isNullable": true,
-      "fields": {
-        "keywords": {
-          "type": "keyword",
-          "size": 64,
-          "default": null,
-          "isNullable": false
-        }
-      }
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "isNullable": false
     },
     "author": {
       "type": "keyword",
