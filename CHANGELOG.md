@@ -1,10 +1,11 @@
 # CHANGELOG for @dictadata/storage-api
 
-- version 1.3.0
+- version 1.3.1
   - support for Microsoft SQL Server (mssql)
   - support storing accounts in SQL storage
   - support storing settings data in SQL storage
   - update dependency to @dictadata/storage-junctions 1.3.0
+  - update dependency to @dictadata/storage-node 1.3.1
 - version 1.2.1
   - add project name and version to /status request
   - update dependency to @dictadata/storage-junctions 1.2.6
