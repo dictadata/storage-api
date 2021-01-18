@@ -1,4 +1,4 @@
-### elasticsearch aggregate w/ groupby
+### elasticsearch consolidate
 POST http://localhost:8089/node/retrieve/es_foo_schema HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
@@ -6,24 +6,18 @@ Content-Type: application/json
 {
   "pattern": {
     "match": {
-      "Baz": { "gte": 0, "lte": 5000 }
+      "Bar": "row",
+      "Baz": { "gte": 100, "lte": 500 }
     },
     "aggregate": {
-      "Dt Test" : {
-        "baz_sum": {"sum": "Baz"}
-      },
       "baz_sum": { "sum": "Baz" },
       "dt_min": { "min": "Dt Test" },
       "dt_max": { "max": "Dt Test" }
-    },
-    "cues": {
-      "count": 3,
-      "order": {"baz_sum": "desc"}
     }
   }
 }
 
-### MS SQL aggregate w/ groupby
+### MS SQL aggregate
 POST http://localhost:8089/node/retrieve/mssql_foo_schema HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
@@ -31,24 +25,17 @@ Content-Type: application/json
 {
   "pattern": {
     "match": {
-      "Baz": { "gte": 0, "lte": 5000 }
+      "Bar": "row",
+      "Baz": { "gte": 100, "lte": 500 }
     },
     "aggregate": {
-      "Dt Test" : {
-        "baz_sum": {"sum": "Baz"}
-      },
       "baz_sum": { "sum": "Baz" },
       "dt_min": { "min": "Dt Test" },
       "dt_max": { "max": "Dt Test" }
-    },
-    "cues": {
-      "count": 3,
-      "order": {"baz_sum": "desc"}
     }
   }
 }
-
-### MySQL aggregate w/ groupby
+### MySQL aggregate
 POST http://localhost:8089/node/retrieve/mysql_foo_schema HTTP/1.1
 Authorization: Basic user user
 Content-Type: application/json
@@ -56,19 +43,13 @@ Content-Type: application/json
 {
   "pattern": {
     "match": {
-      "Baz": { "gte": 0, "lte": 5000 }
+      "Bar": "row",
+      "Baz": { "gte": 100, "lte": 500 }
     },
     "aggregate": {
-      "Dt Test" : {
-        "baz_sum": {"sum": "Baz"}
-      },
       "baz_sum": { "sum": "Baz" },
       "dt_min": { "min": "Dt Test" },
       "dt_max": { "max": "Dt Test" }
-    },
-    "cues": {
-      "count": 3,
-      "order": {"baz_sum": "desc"}
     }
   }
 }
