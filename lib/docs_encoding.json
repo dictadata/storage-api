@@ -3,21 +3,24 @@
     "model": "*",
     "location": "*",
     "schema": "api_docs",
-    "key": "!docid"
+    "key": "=docid"
   },
   "fields": {
     "docid": {
       "type": "keyword",
-      "size": 64,
+      "size": 80,
       "default": null,
       "isNullable": false,
       "isKey": true
     },
     "compilation": {
-      "type": "keyword",
-      "size": 64,
-      "default": "x",
-      "isNullable": false
+      "type": "list",
+      "_item": {
+        "type": "keyword",
+        "size": 80,
+        "default": "",
+        "isNullable": false
+      }
     },
     "title": {
       "type": "text",
@@ -27,14 +30,17 @@
       "isKey": false
     },
     "context": {
-      "type": "keyword",
-      "size": 64,
-      "default": null,
-      "isNullable": false
+      "type": "list",
+      "_item": {
+        "type": "keyword",
+        "size": 80,
+        "default": null,
+        "isNullable": false
+      }
     },
     "author": {
       "type": "keyword",
-      "size": 64,
+      "size": 80,
       "default": null,
       "isNullable": true,
       "isKey": false
@@ -62,7 +68,7 @@
     },
     "article": {
       "type": "text",
-      "size": 0,
+      "size": -1,
       "default": null,
       "isNullable": true,
       "isKey": false
