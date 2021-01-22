@@ -1,5 +1,10 @@
 # CHANGELOG for @dictadata/storage-api
 
+- version 1.3.3
+  - update to docs storage encoding
+  - bug fixes for map, list storage type and SQL statement generation
+  - update dependency to @dictadata/storage-junctions 1.3.2
+  - update dependency to @dictadata/storage-node 1.3.3
 - version 1.3.2
   - bug fix for SQL create table statements
   - update dependency to @dictadata/storage-junctions 1.3.1
