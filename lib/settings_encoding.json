@@ -8,13 +8,13 @@
   "fields": {
     "key": {
       "type": "keyword",
-      "size": 1024,
+      "size": 512,
       "default": null,
       "isNullable": false,
       "isKey": true
     },
     "value": {
-      "type": "text",
+      "type": "map",
       "size": -1,
       "default": null,
       "isNullable": true,
