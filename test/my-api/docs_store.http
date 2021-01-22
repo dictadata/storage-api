@@ -13,8 +13,8 @@ Content-Type: application/json
     "dateline": "Mon Apr 1, 2019 1:30PM",
     "format": "md",
     "article": "Some markup for the document.",
-    "created": null,
-    "updated": null
+    "dateCreated": null,
+    "dateUpdated": null
   }
 }
 

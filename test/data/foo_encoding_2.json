@@ -33,7 +33,7 @@
     },
     "Fobe": {
       "name": "Fobe",
-      "type": "float",
+      "type": "number",
       "size": 0,
       "default": null,
       "isNullable": true,
@@ -58,9 +58,9 @@
       "isKey": false,
       "label": "enabled"
     },
-    "fieldmap": {
-      "name": "fieldmap",
-      "type": "fieldmap",
+    "subObjs": {
+      "name": "subObjs",
+      "type": "map",
       "fields": {
         "sub1": {
           "name": "sub1",
@@ -76,24 +76,13 @@
         }
       }
     },
-    "fieldlist": {
-      "name": "fieldlist",
-      "type": "fieldlist",
-      "fields": {
-        "sub1": {
-          "name": "sub1",
-          "type": "keyword"
-        },
-        "sub2": {
-          "name": "sub2",
-          "type": "integer"
-        },
-        "sub3": {
-          "name": "sub3",
-          "type": "text"
-        }
+    "tags": {
+      "name": "tags",
+      "type": "list",
+      "_item": {
+        "name": "_item",
+        "type": "keyword"
       }
     }
-
   }
 }
